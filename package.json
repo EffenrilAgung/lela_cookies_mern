@@ -1,0 +1,35 @@
+{
+  "name": "online_store_mern",
+  "version": "1.0.0",
+  "description": "MERN Lela Cookies",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
+    "data:import": "node backend/seeder",
+    "data:destroy": "node backend/seeder -d"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EffenrilAgung/online_store_mern.git"
+  },
+  "author": "Effenril Agung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EffenrilAgung/online_store_mern/issues"
+  },
+  "homepage": "https://github.com/EffenrilAgung/online_store_mern#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "concurrently": "^7.3.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0",
+    "nodemon": "^2.0.19"
+  }
+}
