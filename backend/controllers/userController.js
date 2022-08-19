@@ -34,7 +34,7 @@ const registerUser = AsyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error('User Alredy exists');
+    throw new Error('Email Alredy alexist');
   }
 
   const user = await User.create({
@@ -76,4 +76,31 @@ const getUserProfile = AsyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, registerUser, getUserProfile };
+//  @desc   Update user profile
+//  @route  PUT /api/users/profile
+//  @access Private
+const updateUserProfile = AsyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updateUser = await user.save();
+    res.status(201).json({
+      _id: updateUser._id,
+      name: updateUser.name,
+      email: updateUser.email,
+      isAdmin: updateUser.isAdmin,
+      token: generateToken(updateUser._id),
+    });
+  } else {
+    res.status(404);
+    throw new Error('User Not Found');
+  }
+});
+
+export { authUser, registerUser, getUserProfile, updateUserProfile };
