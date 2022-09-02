@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-const Rating = ({ value, text, color }) => {
+const rating = ({ values, text, color }) => {
   return (
     <div className="rating">
       <span>
         <i
           style={{ color }}
           className={
-            value >= 1
+            values >= 1
               ? 'fas fa-star'
-              : value >= 0.5
+              : values >= 0.5
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
@@ -20,9 +20,9 @@ const Rating = ({ value, text, color }) => {
         <i
           style={{ color }}
           className={
-            value >= 2
+            values >= 2
               ? 'fas fa-star'
-              : value >= 1.5
+              : values >= 1.5
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
@@ -33,9 +33,9 @@ const Rating = ({ value, text, color }) => {
         <i
           style={{ color }}
           className={
-            value >= 3
+            values >= 3
               ? 'fas fa-star'
-              : value >= 2.5
+              : values >= 2.5
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
@@ -46,9 +46,9 @@ const Rating = ({ value, text, color }) => {
         <i
           style={{ color }}
           className={
-            value >= 4
+            values >= 4
               ? 'fas fa-star'
-              : value >= 3.5
+              : values >= 3.5
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
@@ -59,9 +59,9 @@ const Rating = ({ value, text, color }) => {
         <i
           style={{ color }}
           className={
-            value >= 5
+            values >= 5
               ? 'fas fa-star'
-              : value >= 4.5
+              : values >= 4.5
               ? 'fas fa-star-half-alt'
               : 'far fa-star'
           }
@@ -72,14 +72,14 @@ const Rating = ({ value, text, color }) => {
   );
 };
 
-Rating.defaultProps = {
+rating.defaultProps = {
   color: '#f8e825',
 };
 
-Rating.propTypes = {
-  value: PropTypes.number.isRequired,
+rating.propTypes = {
+  values: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   color: PropTypes.string,
 };
 
-export default Rating;
+export default rating;

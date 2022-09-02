@@ -18,7 +18,7 @@ const Header = () => {
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <Container fluid>
           <Navbar.Brand>
-            <Link to="/">Lela Cookies</Link>
+            <Link to="/">Proshop</Link>
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />

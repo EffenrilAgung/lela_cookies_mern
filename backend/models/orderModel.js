@@ -1,16 +1,5 @@
 import mongoose from 'mongoose';
 
-const reviewSchema = mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    rating: { type: Number, required: true },
-    comment: { type: String, required: true },
-  },
-  {
-    timestamps: true,
-  }
-);
-
 const orderSchema = mongoose.Schema(
   {
     user: {
@@ -18,7 +7,7 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    OrderItems: [
+    orderItems: [
       {
         name: { type: String, required: true },
         qty: { type: Number, required: true },
@@ -32,34 +21,37 @@ const orderSchema = mongoose.Schema(
       },
     ],
     shippingAddress: {
-      address: { type: String, require: true },
+      address: { type: String, required: true },
       city: { type: String, required: true },
-      postalCode: { type: String, require: true },
+      postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      phoneNumber: { type: String, required: true },
+      provinsi: { type: String, required: true },
+      kecamatan: { type: String, required: true },
+      kelurahan: { type: String, required: true },
     },
-    PaymentMethod: {
+    paymentMethod: {
       type: String,
       required: true,
-      default: false,
     },
-    PaymentResult: {
+    paymentResult: {
       id: { type: String },
       status: { type: String },
       update_time: { type: String },
-      email_result: { type: String },
+      email_address: { type: String },
     },
     taxPrice: {
-      type: String,
+      type: Number,
       required: true,
       default: 0.0,
     },
     shippingPrice: {
-      type: String,
+      type: Number,
       required: true,
       default: 0.0,
     },
     totalPrice: {
-      type: String,
+      type: Number,
       required: true,
       default: 0.0,
     },
@@ -68,7 +60,7 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: false,
     },
-    paidtAt: {
+    paidAt: {
       type: Date,
     },
     isDelivered: {

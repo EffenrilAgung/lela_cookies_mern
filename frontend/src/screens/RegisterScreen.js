@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ const RegisterScreen = ({ location, history }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
+
   const dispatch = useDispatch();
 
   const userRegister = useSelector((state) => state.userRegister);
@@ -29,24 +30,24 @@ const RegisterScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setMessage('Password do not match');
+      setMessage('Passwords do not match');
     } else {
       dispatch(register(name, email, password));
     }
   };
+
   return (
     <FormContainer>
       <h1>Sign Up</h1>
-      {message && <Message variant="primary">{message}</Message>}
+      {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
-
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
-          <Form.Label> Name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             type="name"
-            placeholder="Enter Name"
+            placeholder="Enter name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></Form.Control>
@@ -56,7 +57,7 @@ const RegisterScreen = ({ location, history }) => {
           <Form.Label>Email Address</Form.Label>
           <Form.Control
             type="email"
-            placeholder="Enter Email"
+            placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
@@ -66,7 +67,7 @@ const RegisterScreen = ({ location, history }) => {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Enter Password "
+            placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
@@ -76,7 +77,7 @@ const RegisterScreen = ({ location, history }) => {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Enter Password "
+            placeholder="Confirm password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
