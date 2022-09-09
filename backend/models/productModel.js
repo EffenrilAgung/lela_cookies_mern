@@ -66,7 +66,10 @@ const productSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: {
+      type: String,
+      default: () => moment().format('lll'),
+    },
   }
 );
 

@@ -17,13 +17,16 @@ const userSchema = mongoose.Schema(
       required: true,
     },
     isAdmin: {
-      type: String,
+      type: Boolean,
       required: true,
       default: false,
     },
   },
   {
-    timestamps: true,
+    timestamps: {
+      type: String,
+      default: () => moment().format('lll'),
+    },
   }
 );
 

@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -57,93 +57,91 @@ const RegisterScreen = ({ history }) => {
     }
   };
   return (
-    <Row>
-      <Col md={3}>
-        <h2>Sign Up</h2>
-        {message && <Message variant="primary">{message}</Message>}
-        {error && <Message variant="danger">{error}</Message>}
-        {success && <Message variant="success">Profile Update</Message>}
-        {loading && <Loader />}
+    <>
+      <Row>
+        <Col md={3}>
+          <h2>Sign Up</h2>
+          {message && <Message variant="primary">{message}</Message>}
+          {error && <Message variant="danger">{error}</Message>}
+          {success && <Message variant="success">Profile Update</Message>}
+          {loading && <Loader />}
 
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId="name">
-            <Form.Label> Name</Form.Label>
-            <Form.Control
-              type="name"
-              placeholder="Enter Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
+          <Form onSubmit={submitHandler}>
+            <Form.Group controlId="name">
+              <Form.Label> Name</Form.Label>
+              <Form.Control
+                type="name"
+                placeholder="Enter Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
 
-          <Form.Group controlId="email">
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="Enter Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group controlId="email">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              ></Form.Control>
+            </Form.Group>
 
-          <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter Password "
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group controlId="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter Password "
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              ></Form.Control>
+            </Form.Group>
 
-          <Form.Group controlId="confirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Enter Password "
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            ></Form.Control>
-          </Form.Group>
+            <Form.Group controlId="confirmPassword">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter Password "
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              ></Form.Control>
+            </Form.Group>
 
-          <Button type="submit" variant="primary">
-            Update
-          </Button>
-        </Form>
-      </Col>
-      <Col md={9}>
-        <h2>My Order</h2>
-        {loadingOrders ? (
-          <Loader />
-        ) : errorOrders ? (
-          <Message bvariant="danger">{errorOrders}</Message>
-        ) : (
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th>Details</th>
-                <th></th>
-              </tr>
-            </thead>
-            {orders.map((order) => {
-              console.log(order);
-              return (
+            <Button type="submit" variant="primary">
+              Update
+            </Button>
+          </Form>
+        </Col>
+        <Col md={9}>
+          <h2>My Order</h2>
+          {loadingOrders ? (
+            <Loader />
+          ) : errorOrders ? (
+            <Message bvariant="danger">{errorOrders}</Message>
+          ) : (
+            <Table striped bordered hover responsive className="table-sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>DATE</th>
+                  <th>TOTAL</th>
+                  <th>PAID</th>
+                  <th>DELIVERED</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              {orders.map((order) => (
                 <tbody key={order._id}>
                   <tr>
                     <td>{order._id}</td>
-                    <td>{order.createdAt.substring(0, 10)}</td>
+                    <td>{order.createdAt}</td>
                     <td>{order.totalPrice}</td>
                     <td>
                       {order.isPaid ? (
-                        order.paidAt.substring(0, 10)
+                        order.paidAt
                       ) : (
                         <i
                           className="fas fa-times"
@@ -154,7 +152,7 @@ const RegisterScreen = ({ history }) => {
 
                     <td>
                       {order.isDelivered ? (
-                        order.deliveredAt.substring(0, 10)
+                        order.deliveredAt
                       ) : (
                         <i
                           className="fas fa-times"
@@ -171,12 +169,12 @@ const RegisterScreen = ({ history }) => {
                     </td>
                   </tr>
                 </tbody>
-              );
-            })}
-          </Table>
-        )}
-      </Col>
-    </Row>
+              ))}
+            </Table>
+          )}
+        </Col>
+      </Row>
+    </>
   );
 };
 

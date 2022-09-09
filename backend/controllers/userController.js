@@ -103,4 +103,72 @@ const updateUserProfile = AsyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, registerUser, getUserProfile, updateUserProfile };
+//  @desc   GET all users
+//  @route  GET /api/users
+//  @access PrivateAdmin
+const getUsers = AsyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
+//  @desc   DELETED user
+//  @route  DELETE /api/users/:id
+//  @access PrivateAdmin
+const deleteUser = AsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    await user.remove();
+    res.json({ message: 'User removed' });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+//  @desc   GET user by id
+//  @route  GET /api/users/:id
+//  @access PrivateAdmin
+const getUsersById = AsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id).select('-password');
+  if (user) {
+    res.json(user);
+  } else {
+    throw new Error('user not found');
+  }
+});
+
+//  @desc   Update user profile
+//  @route  PUT /api/users/:id
+//  @access Private/admin
+const updateUser = AsyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.isAdmin = req.body.isAdmin || user.isAdmin;
+
+    const updateUser = await user.save();
+    res.status(201).json({
+      _id: updateUser._id,
+      name: updateUser.name,
+      email: updateUser.email,
+      isAdmin: updateUser.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error('User Not Found');
+  }
+});
+
+export {
+  authUser,
+  registerUser,
+  getUserProfile,
+  updateUserProfile,
+  getUsers,
+  deleteUser,
+  getUsersById,
+  updateUser,
+};
