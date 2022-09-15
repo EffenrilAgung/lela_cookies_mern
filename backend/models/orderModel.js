@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import moment from 'moment';
 
 const orderSchema = mongoose.Schema(
   {
@@ -72,6 +71,12 @@ const orderSchema = mongoose.Schema(
     },
     deliveredAt: {
       // type: Date,
+      type: String,
+    },
+    create_At: {
+      type: String,
+    },
+    update_At: {
       type: String,
     },
   },

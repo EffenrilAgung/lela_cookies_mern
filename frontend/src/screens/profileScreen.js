@@ -137,7 +137,7 @@ const RegisterScreen = ({ history }) => {
                 <tbody key={order._id}>
                   <tr>
                     <td>{order._id}</td>
-                    <td>{order.createdAt}</td>
+                    <td>{order.created_At}</td>
                     <td>{order.totalPrice}</td>
                     <td>
                       {order.isPaid ? (
