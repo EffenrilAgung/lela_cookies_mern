@@ -13,26 +13,62 @@ import {
 import Rating from '../Components/Rating';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
-import { listProductDetails } from '../action/productActions';
+import {
+  listProductDetails,
+  createProductReview,
+} from '../action/productActions';
+import Meta from '../Components/Meta';
+import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
 
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const productReviewCreate = useSelector((state) => state.productReviewCreate);
+  const {
+    success: successProductReview,
+    error: errorProductReview,
+  } = productReviewCreate;
+
   useEffect(() => {
-    dispatch(listProductDetails(match.params.id));
-  }, [dispatch, match]);
+    if (successProductReview) {
+      alert('review submited');
+      setRating(0);
+      setComment('');
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+    }
+    if (!product._id || product._id !== match.params.id) {
+      dispatch(listProductDetails(match.params.id));
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+    }
+  }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      createProductReview(match.params.id, {
+        rating,
+        comment,
+      })
+    );
+  };
+
   return (
     <>
+      <Meta title={product.name} />
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
@@ -120,6 +156,67 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup>
               </Card>
             </Col>
+          </Row>
+          <Row md={6}>
+            <Col md={12}>
+              <h2>Review</h2>
+            </Col>
+          </Row>
+          <Row>
+            {product.reviews.length === 0 && <Message>No Reviews</Message>}
+            <ListGroup variant="flush">
+              {product.reviews.map((review) => {
+                return (
+                  <ListGroup.Item key={review._id}>
+                    <strong>{review.name}</strong>
+                    <Rating value={review.rating} />
+                    <p>{review.create_at}</p>
+                    <p>{review.comment}</p>
+                  </ListGroup.Item>
+                );
+              })}
+              <ListGroup.Item>
+                {errorProductReview && (
+                  <Message variant="danger">{errorProductReview}</Message>
+                )}
+                <h2>Write a Costummer Review</h2>
+                {userInfo ? (
+                  <Form onSubmit={submitHandler}>
+                    <Form.Group controlId="rating">
+                      <Form.Label>Rating</Form.Label>
+                      <Form.Control
+                        as="select"
+                        value={rating}
+                        onChange={(e) => setRating(e.target.value)}
+                      >
+                        <option value="">Select ...</option>
+                        <option value="1">1 - Poor</option>
+                        <option value="2">2 - Fair</option>
+                        <option value="3">3 - Good</option>
+                        <option value="4">4 - Very Good</option>
+                        <option value="5">5 - Excellent</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="comment">
+                      <Form.Label>Comment</Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        rows={3}
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                      ></Form.Control>
+                    </Form.Group>
+                    <Button type="submit" variant="primary">
+                      Submit
+                    </Button>
+                  </Form>
+                ) : (
+                  <Message>
+                    Please<Link to="/login">sign in</Link> to write review
+                  </Message>
+                )}
+              </ListGroup.Item>
+            </ListGroup>
           </Row>
         </>
       )}

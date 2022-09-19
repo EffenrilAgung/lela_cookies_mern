@@ -5,6 +5,8 @@ const reviewSchema = mongoose.Schema(
     name: { type: String, required: true },
     rating: { type: Number, required: true },
     comment: { type: String, required: true },
+    create_at: { type: String },
+    update_at: { type: String },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,

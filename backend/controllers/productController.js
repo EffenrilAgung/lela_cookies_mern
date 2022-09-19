@@ -1,14 +1,29 @@
-import { response } from 'express';
 import AsyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
+import moment from 'moment/moment.js';
 
 //  @desc Fetch All products
 //  @route GET /api/products
 //  @access public
 const getProducts = AsyncHandler(async (req, res) => {
-  const product = await Product.find({});
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
 
-  res.json(product);
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: 'i',
+        },
+      }
+    : {};
+
+  const count = await Product.countDocuments({ ...keyword });
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 //  @desc   Fetch single product
@@ -97,7 +112,7 @@ const createProductReview = AsyncHandler(async (req, res) => {
 
   if (product) {
     const alreadyReviewed = product.reviews.find(
-      (r) => r.user.toString() === req.user_id.toString()
+      (r) => r.user.toString() === req.user._id.toString()
     );
 
     if (alreadyReviewed) {
@@ -108,6 +123,8 @@ const createProductReview = AsyncHandler(async (req, res) => {
       name: req.user.name,
       rating: Number(rating),
       comment,
+      create_at: moment().format('lll'),
+      update_at: moment().format('lll'),
       user: req.user._id,
     };
     product.reviews.push(review);
@@ -127,6 +144,16 @@ const createProductReview = AsyncHandler(async (req, res) => {
   }
 });
 
+//  @desc   GET Top rated product
+//  @route  GET  /api/products/:id/top
+//  @access Public
+
+const getTopProducts = AsyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
+
+  res.json(products);
+});
+
 export {
   getProducts,
   getProductById,
@@ -134,4 +161,5 @@ export {
   createProduct,
   updateProduct,
   createProductReview,
+  getTopProducts,
 };
