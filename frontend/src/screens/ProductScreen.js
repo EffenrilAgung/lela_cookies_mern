@@ -70,7 +70,7 @@ const ProductScreen = ({ history, match }) => {
     <>
       <Meta title={product.name} />
       <Link className="btn btn-light my-3" to="/">
-        Go Back
+        Kembali
       </Link>
       {loading ? (
         <Loader />
@@ -93,9 +93,9 @@ const ProductScreen = ({ history, match }) => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item>Harga : Rp. {product.price}</ListGroup.Item>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  Deskripsi : {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -104,16 +104,16 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <Row>
-                      <Col>Price:</Col>
+                      <Col>Harga : </Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>Rp. {product.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
 
                   <ListGroup.Item>
                     <Row>
-                      <Col>Status:</Col>
+                      <Col>Status : </Col>
                       <Col>
                         {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
                       </Col>
@@ -123,7 +123,7 @@ const ProductScreen = ({ history, match }) => {
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
-                        <Col>Qty</Col>
+                        <Col>Jumlah</Col>
                         <Col>
                           <Form.Control
                             as="select"
@@ -150,7 +150,7 @@ const ProductScreen = ({ history, match }) => {
                       type="button"
                       disabled={product.countInStock === 0}
                     >
-                      Add To Cart
+                      Tambahkan Keranjang
                     </Button>
                   </ListGroup.Item>
                 </ListGroup>
@@ -179,7 +179,7 @@ const ProductScreen = ({ history, match }) => {
                 {errorProductReview && (
                   <Message variant="danger">{errorProductReview}</Message>
                 )}
-                <h2>Write a Costummer Review</h2>
+                <h2>Buat Ulasan Pelanggan</h2>
                 {userInfo ? (
                   <Form onSubmit={submitHandler}>
                     <Form.Group controlId="rating">
@@ -190,15 +190,15 @@ const ProductScreen = ({ history, match }) => {
                         onChange={(e) => setRating(e.target.value)}
                       >
                         <option value="">Select ...</option>
-                        <option value="1">1 - Poor</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="3">3 - Good</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="5">5 - Excellent</option>
+                        <option value="1">1 - Sangat Buruk</option>
+                        <option value="2">2 - Buruk</option>
+                        <option value="3">3 - Baik</option>
+                        <option value="4">4 - Sangat Baik</option>
+                        <option value="5">5 - Luar Biasa</option>
                       </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="comment">
-                      <Form.Label>Comment</Form.Label>
+                      <Form.Label>Komentar</Form.Label>
                       <Form.Control
                         as="textarea"
                         rows={3}
@@ -212,7 +212,8 @@ const ProductScreen = ({ history, match }) => {
                   </Form>
                 ) : (
                   <Message>
-                    Please<Link to="/login">sign in</Link> to write review
+                    Silahkan <Link to="/login">Log In</Link> Untuk Menulis
+                    Review
                   </Message>
                 )}
               </ListGroup.Item>

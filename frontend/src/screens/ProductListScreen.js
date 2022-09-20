@@ -73,11 +73,11 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <Row className="align-items-center">
         <Col>
-          <h1>Product</h1>
+          <h1>Barang</h1>
         </Col>
         <Col className="text-right">
           <Button className="my-3" onClick={createProductHandler}>
-            <i className="fas fa-plus"></i>Create Product
+            <i className="fas fa-plus"></i> Buat Barang Baru
           </Button>
         </Col>
       </Row>
@@ -96,10 +96,10 @@ const ProductListScreen = ({ history, match }) => {
               <tr>
                 <th>NO</th>
                 <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
+                <th>NAMA</th>
+                <th>HARGA</th>
+                <th>KATEGORI</th>
+                <th>MEREK</th>
                 <th>ACTION</th>
               </tr>
             </thead>

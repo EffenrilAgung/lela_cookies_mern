@@ -68,7 +68,7 @@ const RegisterScreen = ({ history }) => {
 
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label> Name</Form.Label>
+              <Form.Label> Nama</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter Name"
@@ -78,7 +78,7 @@ const RegisterScreen = ({ history }) => {
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Alamat Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter Email"
@@ -125,12 +125,13 @@ const RegisterScreen = ({ history }) => {
             <Table striped bordered hover responsive className="table-sm">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>DATE</th>
-                  <th>TOTAL</th>
-                  <th>PAID</th>
-                  <th>DELIVERED</th>
-                  <th>Details</th>
+                  <th className="text-center">ID</th>
+                  <th className="text-center">TANGGAL</th>
+                  <th className="text-center">JUMLAH</th>
+                  <th className="text-center">METODE PEMBAYARAN</th>
+                  <th className="text-center">TERBAYAR</th>
+                  <th className="text-center">TERKIRIM</th>
+                  <th className="text-center">RINCIAN</th>
                 </tr>
               </thead>
               {orders.map((order) => (
@@ -138,7 +139,8 @@ const RegisterScreen = ({ history }) => {
                   <tr>
                     <td>{order._id}</td>
                     <td>{order.created_At}</td>
-                    <td>{order.totalPrice}</td>
+                    <td>Rp. {order.totalPrice}</td>
+                    <td>{order.paymentMethod}</td>
                     <td>
                       {order.isPaid ? (
                         order.paidAt
@@ -163,7 +165,7 @@ const RegisterScreen = ({ history }) => {
                     <td>
                       <LinkContainer to={`/order/${order._id}`}>
                         <Button className="btn-sm" variant="light">
-                          Details
+                          Rincian
                         </Button>
                       </LinkContainer>
                     </td>

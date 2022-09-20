@@ -94,10 +94,10 @@ const ProductEditScreen = ({ match, history }) => {
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
-        Go Back
+        Kembali
       </Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>Edit Pengguna</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -107,7 +107,7 @@ const ProductEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nama</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
@@ -117,7 +117,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Price</Form.Label>
+              <Form.Label>Harga</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter Price"
@@ -127,7 +127,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="image">
-              <Form.Label>Image</Form.Label>
+              <Form.Label>Upload Gambar</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
@@ -147,40 +147,40 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="brand">
-              <Form.Label>brand</Form.Label>
+              <Form.Label>Merk</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Brand"
+                placeholder="Masukkan Nama Merk Barang"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="countInStock">
-              <Form.Label>Count In Stock</Form.Label>
+              <Form.Label>Jumlah Stock Barang</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter Count In Stock"
+                placeholder="Jumlah Stock Barang"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="category">
-              <Form.Label>category</Form.Label>
+              <Form.Label>Kategori</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Category"
+                placeholder="Masukkan Kategori Barang"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="description">
-              <Form.Label>description</Form.Label>
+              <Form.Label>Deskripsi</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Description"
+                placeholder="Masukkan Deskripsi Barang"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>

@@ -32,7 +32,7 @@ const HomeScreen = ({ match }) => {
       ) : (
         <Link to="/" className="btn btn-light">
           {' '}
-          Go Back
+          Kembali
         </Link>
       )}
       <h1>Lates Product</h1>

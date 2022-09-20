@@ -42,13 +42,13 @@ const ShippingScreen = ({ history }) => {
   return (
     <FormContainer>
       <CheckoutSteps steps1 steps2 />
-      <h2>Shipping</h2>
+      <h2>Pengiriman</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
-          <Form.Label> address</Form.Label>
+          <Form.Label> Alamat Lengkap</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Address"
+            placeholder="Alamat Lengkap"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -56,7 +56,7 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="city">
-          <Form.Label> City</Form.Label>
+          <Form.Label> Kota</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter City"
@@ -67,10 +67,10 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="postalCode">
-          <Form.Label> Postal Code</Form.Label>
+          <Form.Label> Kode Pos</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Postal Code"
+            placeholder="Masukkan Kode Pos"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
@@ -78,10 +78,10 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="country">
-          <Form.Label> Country</Form.Label>
+          <Form.Label> Negara</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Country"
+            placeholder="Masukkan Nama Negara Tempat Tinggal"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required
@@ -89,10 +89,10 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="recipent">
-          <Form.Label> Recipent</Form.Label>
+          <Form.Label> Nama Penerima</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Recipent"
+            placeholder="Masukkan Nama Penerima"
             value={recipent}
             onChange={(e) => setRecipent(e.target.value)}
             required
@@ -100,10 +100,10 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="phoneNumber">
-          <Form.Label> phoneNumber</Form.Label>
+          <Form.Label> Nomor Handphone</Form.Label>
           <Form.Control
             type="number"
-            placeholder="Enter Phone Number"
+            placeholder="Masukkan Nomor Handphone"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
@@ -114,7 +114,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Label> Provinsi</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Provinsi"
+            placeholder="Nama Provinsi"
             value={provinsi}
             onChange={(e) => setProvinsi(e.target.value)}
             required
@@ -122,10 +122,10 @@ const ShippingScreen = ({ history }) => {
         </Form.Group>
 
         <Form.Group controlId="kecamatan">
-          <Form.Label> kecamatan</Form.Label>
+          <Form.Label> Kecamatan</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Kecamatan"
+            placeholder="Nama Kecamatan"
             value={kecamatan}
             onChange={(e) => setKecamatan(e.target.value)}
             required
@@ -136,7 +136,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Label> Kelurahan</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter kelurahan"
+            placeholder="Alamat Kelurahan"
             value={kelurahan}
             onChange={(e) => setKelurahan(e.target.value)}
             required

@@ -35,11 +35,11 @@ const OrderListScreen = ({ history }) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>USER</th>
-              <th>DATE</th>
+              <th>PELANGGAN</th>
+              <th>TANGGAL</th>
               <th>TOTAL</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
+              <th>TERBAYAR</th>
+              <th>TERKIRIM</th>
             </tr>
           </thead>
           {orders.map((order) => {
@@ -68,7 +68,7 @@ const OrderListScreen = ({ history }) => {
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
                       <Button variant="light" className="btn-sm">
-                        Details
+                        Rincian
                       </Button>
                     </LinkContainer>
                   </td>

@@ -53,7 +53,7 @@ const UserEditScreen = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>Edit Pengguna</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -63,7 +63,7 @@ const UserEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nama</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
@@ -73,7 +73,7 @@ const UserEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Alamat Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
@@ -85,13 +85,13 @@ const UserEditScreen = ({ match, history }) => {
             <Form.Check
               type="switch"
               id="custom-switch"
-              label="is Admin"
+              label="Jadikan Sebagai Admin"
               checked={isAdmin}
               onChange={(e) => setIsAdmin(e.target.checked)}
             />
 
             <Button type="submit" variant="primary">
-              Register
+              Daftar
             </Button>
           </Form>
         )}

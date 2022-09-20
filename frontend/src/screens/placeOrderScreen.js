@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Components/message';
 import CheckoutSteps from '../Components/CheckoutSteps';
 import { createOrder } from '../action/orderAction';
+import FormatCurrency from '../Components/FormatCurrency';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -56,9 +57,9 @@ const PlaceOrderScreen = ({ history }) => {
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h2>Pengiriman</h2>
               <p>
-                <strong>Address :</strong>
+                <strong>Alamat :</strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city},{' '}
                 {cart.shippingAddress.postalCode},{' '}
                 {cart.shippingAddress.country},{' '}
@@ -69,14 +70,14 @@ const PlaceOrderScreen = ({ history }) => {
               </p>
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong>Method :</strong>
+              <h2>Metode Pembayaran</h2>
+              <strong>Metode :</strong>
               {cart.paymentMethod}
             </ListGroup.Item>
             <ListGroup.Item>
-              <h2>Order Items</h2>
+              <h2>Pesanan</h2>
               {cart.cartItems.length === 0 ? (
-                <Message>Your Cart is Empty</Message>
+                <Message>Keranjang Masih Kosong</Message>
               ) : (
                 <ListGroup varian="flush">
                   {cart.cartItems.map((item, index) => (
@@ -96,7 +97,8 @@ const PlaceOrderScreen = ({ history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} X ${item.price} = ${item.qty * item.price}
+                          {item.qty} X {FormatCurrency(item.price)} =
+                          {item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -110,30 +112,30 @@ const PlaceOrderScreen = ({ history }) => {
           <Card>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Rigkasan Pesanan</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>Jumlah</Col>
+                  <Col>{cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>Pengiriman</Col>
+                  <Col>{cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>Pajak</Col>
+                  <Col>{cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>Jumlah</Col>
+                  <Col>{cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -146,7 +148,7 @@ const PlaceOrderScreen = ({ history }) => {
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
-                  Place Order
+                  Bayar Pesanan
                 </Button>
               </ListGroup.Item>
             </ListGroup>

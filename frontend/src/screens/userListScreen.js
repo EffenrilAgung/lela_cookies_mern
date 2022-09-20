@@ -34,7 +34,7 @@ const userListScreen = ({ history }) => {
 
   return (
     <>
-      <h1>userListScreen</h1>
+      <h1>Pengguna Terdaftar</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -44,7 +44,7 @@ const userListScreen = ({ history }) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NAME</th>
+              <th>NAMA</th>
               <th>EMAIL</th>
               <th>ADMIN</th>
               <th>ACTION</th>

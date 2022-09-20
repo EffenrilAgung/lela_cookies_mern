@@ -44,20 +44,20 @@ const RegisterScreen = ({ location, history }) => {
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Nama</Form.Label>
           <Form.Control
             type="name"
-            placeholder="Enter name"
+            placeholder="Masukkan Nama Legkap"
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></Form.Control>
         </Form.Group>
 
         <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>Alamat Email</Form.Label>
           <Form.Control
             type="email"
-            placeholder="Enter email"
+            placeholder="Masukkan Alamat Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
@@ -84,15 +84,15 @@ const RegisterScreen = ({ location, history }) => {
         </Form.Group>
 
         <Button type="submit" variant="primary">
-          Register
+          Daftar
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
-          Have an Account?{' '}
+          Sudah memiliki akun?{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-            Login
+            masuk
           </Link>
         </Col>
       </Row>
