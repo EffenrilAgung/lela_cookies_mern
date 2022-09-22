@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import Meta from '../Components/Meta';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
 import Product from '../Components/Product';
 import { listProducts } from '../action/productActions';
 import Paginate from '../Components/Paginate';
 import ProductCarousel from '../Components/productCarousel';
+import JumbotronProduct from '../Components/JumbotronProduct';
+import SpanYellow from '../Components/spanYellow';
+import MapsScreen from './MapsScreen';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -26,6 +29,7 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <JumbotronProduct />
       <Meta />
       {!keyword ? (
         <ProductCarousel />
@@ -35,20 +39,25 @@ const HomeScreen = ({ match }) => {
           Kembali
         </Link>
       )}
-      <h1>Lates Product</h1>
+      <h2 className="sub-title text-center">
+        All<SpanYellow>Product</SpanYellow>
+      </h2>
       {loading ? (
         <Loader /> // this loading handling
       ) : error ? (
         <Message variant={'danger'}>{error}</Message> //this Error Handle
       ) : (
         <>
-          <Row>
-            {products.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))}
-          </Row>
+          <Container>
+            <Row className="card-product">
+              {products.map((product) => (
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                  <Product product={product} />
+                </Col>
+              ))}
+            </Row>
+            <MapsScreen />
+          </Container>
           <Paginate
             pages={pages}
             page={page}

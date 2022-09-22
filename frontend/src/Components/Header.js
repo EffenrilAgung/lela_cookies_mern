@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { logout } from '../action/userAction';
 import SearchBox from './searchBox';
+import SpanYellow from './spanYellow';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -17,10 +18,13 @@ const Header = () => {
   };
   return (
     <header>
-      <Navbar bg="light" expand="lg">
-        <Container>
+      <Navbar className="navbar-background" expand="lg">
+        <Container className="py-2">
           <LinkContainer to="/">
-            <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand className="font-title">
+              Lela
+              <SpanYellow>Cookies</SpanYellow>
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -69,6 +73,10 @@ const Header = () => {
       </Navbar>
     </header>
   );
+};
+
+Header.defaultProps = {
+  fixed: 'top',
 };
 
 export default Header;

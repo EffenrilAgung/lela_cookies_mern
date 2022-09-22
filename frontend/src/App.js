@@ -22,16 +22,16 @@ const App = () => {
   return (
     <Router>
       <Header />
+      <Route path="/search/:keyword" component={HomeScreen} exact />
+      <Route path="/page/:pageNumber" component={HomeScreen} exact />
+      <Route
+        path="/search/:keyword/page/:pageNumber"
+        component={HomeScreen}
+        exact
+      />
+      <Route path="/" component={HomeScreen} exact />
       <main className="py-3">
         <Container>
-          <Route path="/search/:keyword" component={HomeScreen} exact />
-          <Route path="/page/:pageNumber" component={HomeScreen} exact />
-          <Route
-            path="/search/:keyword/page/:pageNumber"
-            component={HomeScreen}
-            exact
-          />
-          <Route path="/" component={HomeScreen} exact />
           <Route
             path="/admin/productlist"
             component={ProductListScreen}

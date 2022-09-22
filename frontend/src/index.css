@@ -1,3 +1,175 @@
+/* Access Font Family */
+/* 
+font-family: 'Poppins', sans-serif;
+font-family: 'Pacifico', cursive;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+/* Global  */
+html {
+  overflow-x: hidden;
+}
+
+* {
+  color: #212529;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+/* Font Title */
+.font-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.7rem !important;
+  font-weight: 400 !important;
+  color: #fff !important;
+}
+
+/* End Font Title */
+
+h2.sub-title.text-center {
+  margin-top: 80px;
+  font-size: 1.5rem;
+}
+
+/* All font */
+.font-number {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+
+/* all font title h2 h1*/
+.jumbotron-h1,
+.jumbotron-lead,
+h2.sub-title.text-center,
+button.button-jumbotron.btn.btn-primary {
+  font-family: 'Pacifico', cursive;
+}
+
+/* End All Font  */
+/* End All Font */
+/* End Global */
+
+/* Jumbotron */
+.jumbotron {
+  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%), url(../src/Components/ImagesComponent/cookies.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.jumbotron-h1 {
+  font-size: 3.1rem;
+  color: white;
+}
+
+.jumbotron-lead {
+  color: #fff;
+}
+
+button.button-jumbotron.btn.btn-primary {
+  background-color: #ECB70A;
+  border-color: #ECB70A;
+  color: #000;
+  margin-top: 1rem;
+}
+
+button.button-jumbotron.btn.btn-primary:hover {
+  background-color: #1E1E1E;
+  border-color: #ECB70A;
+  color: #fff;
+}
+
+
+
+/* end jumbotron */
+
+/* Navbar */
+/* nav.navbar.navbar-expand-lg.navbar-light {
+  background-color: transparent !important;
+} */
+
+nav.navbar-background.navbar.navbar-expand-lg.navbar-light {
+  background-color: #000 !important;
+}
+
+
+a.nav-link:nth-child(1) {
+  margin: 0 1.2rem 0 0;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link,
+.nav-link:focus {
+  color: #ECB70A;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
+  color: #ECB70A !important;
+  font-weight: 500;
+}
+
+a.nav-link:active {
+  color: white;
+}
+
+i.fas.fa-user {
+  color: #fff;
+}
+
+.nav-link:focus {
+  color: #ECB70A !important;
+}
+
+a.nav-link,
+i.fas.fa-shopping-cart {
+  color: #fff;
+}
+
+a.nav-link:hover {
+  color: #ECB70A;
+  font-weight: 500;
+}
+
+
+
+
+/* DropDown */
+button.navbar-toggler.collapsed,
+button.navbar-toggler {
+  background-color: #ECB70A;
+  color: #fff
+}
+
+
+/* End DropDown */
+
+/* End Navbar */
+
+/* Search */
+input.form-input.rounded-0.form-control[type=text] {
+  background-color: #fff;
+  font-family: 'poppins', sans-serif;
+  color: #000;
+  font-weight: 400;
+}
+
+
+/* Button */
+button.form-button-search.rounded-0.btn {
+  background-color: #ECB70A;
+}
+
+
+/* End Search */
+
+a {
+  text-decoration: none;
+}
+
 main {
   min-height: 80vh;
 }
@@ -40,18 +212,66 @@ h2 {
 }
 
 .carousel .carousel-item a img {
-  height: 300px;
+  /* height: 300px;
   padding: 40px;
   border-radius: 50%;
-  margin: 40px auto 40px auto;
+  margin: 40px auto 40px auto; */
+  width: 100%;
+  height: 50%;
 }
 
 .carousel a {
   margin: 0 auto;
 }
 
+/* End Carousel */
+
+/* Card Product */
+.col-xl-3.col-lg-4.col-md-6.col-sm-12 {
+  margin: 20px 20px;
+}
+
+.card-product {
+  display: flex;
+  justify-content: center;
+}
+
+.card-image {
+  height: 14rem;
+}
+
+.card-body a {
+  text-decoration: none;
+}
+
+.card {
+  border-color: #ECB70A !important;
+}
+
+.card:hover {
+  box-shadow: 1px -1px 8px rgba(255, 203, 8, 1);
+}
+
+/* Close Card Product */
+
 @media (max-width: 900px) {
   .carousel-caption h2 {
     font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .jumbotron-h1 {
+    font-size: 3.4vw;
+  }
+
+  .jumbotron-lead {
+    font-size: 2.1vw;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .jumbotron-h1 {
+    font-size: 2rem;
   }
 }
