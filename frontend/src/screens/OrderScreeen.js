@@ -11,6 +11,7 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants';
+import FormatCurrency from '../Components/FormatCurrency';
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -159,7 +160,8 @@ const OrderScreen = ({ match, history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x Rp. {item.price} = Rp.{' '}
+                          {item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -179,25 +181,25 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Jumlah</Col>
-                  <Col>Rp. {order.itemsPrice}</Col>
+                  <Col>{FormatCurrency(order.itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Pengiriman</Col>
-                  <Col>Rp. {order.shippingPrice}</Col>
+                  <Col>{FormatCurrency(order.shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Pajak</Col>
-                  <Col>Rp. {order.taxPrice}</Col>
+                  <Col>{FormatCurrency(order.taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Jumlah</Col>
-                  <Col>Rp. {order.totalPrice}</Col>
+                  <Col>{FormatCurrency(order.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
 

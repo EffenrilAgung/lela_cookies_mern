@@ -57,12 +57,12 @@ const HomeScreen = ({ match }) => {
               ))}
             </Row>
             <MapsScreen />
+            <Paginate
+              pages={pages}
+              page={page}
+              keyword={keyword ? keyword : ''}
+            />
           </Container>
-          <Paginate
-            pages={pages}
-            page={page}
-            keyword={keyword ? keyword : ''}
-          />
         </>
       )}
     </>

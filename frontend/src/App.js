@@ -22,16 +22,18 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Route path="/search/:keyword" component={HomeScreen} exact />
-      <Route path="/page/:pageNumber" component={HomeScreen} exact />
-      <Route
-        path="/search/:keyword/page/:pageNumber"
-        component={HomeScreen}
-        exact
-      />
-      <Route path="/" component={HomeScreen} exact />
-      <main className="py-3">
-        <Container>
+      <main>
+        <Route path="/search/:keyword" component={HomeScreen} exact />
+        <Route path="/page/:pageNumber" component={HomeScreen} exact />
+        <Route
+          path="/search/:keyword/page/:pageNumber"
+          component={HomeScreen}
+          exact
+        />
+        <Route path="/" component={HomeScreen} exact />
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/register" component={RegisterScreen} />
+        <Container className="py-3">
           <Route
             path="/admin/productlist"
             component={ProductListScreen}
@@ -47,8 +49,8 @@ const App = () => {
           <Route path="/admin/userlist" component={userListScreen} />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/register" component={RegisterScreen} />
+          {/* <Route path="/login" component={LoginScreen} /> */}
+          {/* <Route path="/register" component={RegisterScreen} /> */}
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={paymentScreen} />

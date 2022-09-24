@@ -44,7 +44,7 @@ const ShippingScreen = ({ history }) => {
       <CheckoutSteps steps1 steps2 />
       <h2>Pengiriman</h2>
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId="address">
+        <Form.Group controlId="address" className="mt-2">
           <Form.Label> Alamat Lengkap</Form.Label>
           <Form.Control
             type="text"
@@ -55,7 +55,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="city">
+        <Form.Group controlId="city" className="mt-2">
           <Form.Label> Kota</Form.Label>
           <Form.Control
             type="text"
@@ -66,7 +66,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="postalCode">
+        <Form.Group controlId="postalCode" className="mt-2">
           <Form.Label> Kode Pos</Form.Label>
           <Form.Control
             type="text"
@@ -77,7 +77,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="country">
+        <Form.Group controlId="country" className="mt-2">
           <Form.Label> Negara</Form.Label>
           <Form.Control
             type="text"
@@ -88,7 +88,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="recipent">
+        <Form.Group controlId="recipent" className="mt-2">
           <Form.Label> Nama Penerima</Form.Label>
           <Form.Control
             type="text"
@@ -99,7 +99,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="phoneNumber">
+        <Form.Group controlId="phoneNumber" className="mt-2">
           <Form.Label> Nomor Handphone</Form.Label>
           <Form.Control
             type="number"
@@ -110,7 +110,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="provinsi">
+        <Form.Group controlId="provinsi" className="mt-2">
           <Form.Label> Provinsi</Form.Label>
           <Form.Control
             type="text"
@@ -121,7 +121,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="kecamatan">
+        <Form.Group controlId="kecamatan" className="mt-2">
           <Form.Label> Kecamatan</Form.Label>
           <Form.Control
             type="text"
@@ -132,7 +132,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group controlId="kelurahan">
+        <Form.Group controlId="kelurahan" className="mt-2">
           <Form.Label> Kelurahan</Form.Label>
           <Form.Control
             type="text"
@@ -143,7 +143,7 @@ const ShippingScreen = ({ history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" className="button-model-submit mt-2">
           Continue
         </Button>
       </Form>

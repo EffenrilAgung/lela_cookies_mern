@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
-import FormContainer from '../Components/FormContainer';
 import { login } from '../action/userAction';
+import SpanYellow from '../Components/spanYellow';
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,44 +28,67 @@ const LoginScreen = ({ location, history }) => {
     dispatch(login(email, password));
   };
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId="email">
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter Password "
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-
-        <Button type="submit" variant="primary">
-          Sign In
-        </Button>
-      </Form>
-
-      <Row className="py-3">
-        <Col>
-          Pelanggan Baru?{' '}
-          <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-            Daftar
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+    <>
+      <div className="row">
+        <div className="image-login col col-md-6 vh-100 d-flex justify-content-center align-items-center">
+          <div className="col-md-4">
+            <h2 className="title-image-login">
+              Login With Lela <SpanYellow>Cookies</SpanYellow>
+            </h2>
+          </div>
+        </div>
+        <div className="col col-md-6 vh-100 d-flex justify-content-center align-items-start flex-column">
+          {error && <Message variant="danger">{error}</Message>}
+          {loading && <Loader />}
+          <div className="form-right">
+            <h2 className="title-login">
+              Welcome <SpanYellow>Back</SpanYellow>
+            </h2>
+            <p className="login-text text-lead">
+              Untuk tetap terhubung dengan kami, silakan masuk dengan informasi
+              pribadi Anda menggunakan email dan kata sandi
+            </p>
+            <Form onSubmit={submitHandler}>
+              <Form.Group controlId="email" className="group-email ">
+                <i className="icon-email fa-sharp fa-solid fa-envelope"></i>
+                <Form.Label className="label-email text-center">
+                  Email Address
+                </Form.Label>
+                <Form.Control
+                  className="input-email"
+                  type="email"
+                  placeholder="Enter Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="password" className="group-password">
+                <i className="icon-password fa-sharp fa-solid fa-key"></i>
+                <Form.Label className="label-password">Password</Form.Label>
+                <Form.Control
+                  className="input-password"
+                  type="password"
+                  placeholder="Enter Password "
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <span className="login-new-user d-block">
+                Pelanggan Baru?{' '}
+                <Link
+                  to={redirect ? `/register?redirect=${redirect}` : '/register'}
+                >
+                  Daftar
+                </Link>
+              </span>
+              <Button type="submit" className="button-login" variant="primary">
+                Sign In
+              </Button>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

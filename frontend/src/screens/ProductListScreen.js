@@ -11,6 +11,7 @@ import {
   createProduct,
 } from '../action/productActions';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
+import FormatCurrency from '../Components/FormatCurrency';
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -75,9 +76,12 @@ const ProductListScreen = ({ history, match }) => {
         <Col>
           <h1>Barang</h1>
         </Col>
-        <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler}>
-            <i className="fas fa-plus"></i> Buat Barang Baru
+        <Col className="d-flex justify-content-end">
+          <Button
+            className="button-model-submit my-3"
+            onClick={createProductHandler}
+          >
+            <i className="fas fa-plus text-white"></i> Buat Barang Baru
           </Button>
         </Col>
       </Row>
@@ -99,7 +103,7 @@ const ProductListScreen = ({ history, match }) => {
                 <th>NAMA</th>
                 <th>HARGA</th>
                 <th>KATEGORI</th>
-                <th>MEREK</th>
+                <th>BAHAN UTAMA</th>
                 <th>ACTION</th>
               </tr>
             </thead>
@@ -112,7 +116,7 @@ const ProductListScreen = ({ history, match }) => {
                     <td>{product._id}</td>
                     <td>{product.name}</td>
                     <td>
-                      <td>$ {product.price}</td>
+                      <td> {FormatCurrency(product.price)}</td>
                     </td>
                     <td>{product.category}</td>
                     <td>{product.brand}</td>

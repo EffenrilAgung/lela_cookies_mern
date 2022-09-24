@@ -92,7 +92,10 @@ const PlaceOrderScreen = ({ history }) => {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/${item.product}`}>
+                          <Link
+                            className="link-product"
+                            to={`/product/${item.product}`}
+                          >
                             {item.name}
                           </Link>
                         </Col>
@@ -117,25 +120,25 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Jumlah</Col>
-                  <Col>{cart.itemsPrice}</Col>
+                  <Col>{FormatCurrency(cart.itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Pengiriman</Col>
-                  <Col>{cart.shippingPrice}</Col>
+                  <Col>{FormatCurrency(cart.shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Pajak</Col>
-                  <Col>{cart.taxPrice}</Col>
+                  <Col>{FormatCurrency(cart.taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Jumlah</Col>
-                  <Col>{cart.totalPrice}</Col>
+                  <Col>{FormatCurrency(cart.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -144,7 +147,7 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Button
                   type="button"
-                  className="btn-block"
+                  className="btn-block btn-lg"
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >

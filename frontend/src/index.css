@@ -15,6 +15,8 @@ html {
   color: #212529;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
+  text-decoration: none !important;
+  text-rendering: optimizeLegibility;
 }
 
 /* Font Title */
@@ -32,6 +34,33 @@ h2.sub-title.text-center {
   font-size: 1.5rem;
 }
 
+/* Link Product */
+a.link-product {
+  color: #165798;
+}
+
+a.link-product:hover {
+  color: #ECB70A;
+  font-weight: 500;
+}
+
+/* End Link Product */
+
+/* Button */
+.button-model-submit {
+  background-color: #ECB70A !important;
+  color: #000 !important;
+  border-color: #ECB70A !important;
+}
+
+.button-model-submit:hover {
+  background-color: rgb(21, 44, 91) !important;
+  color: #fff !important;
+  border-color: rgb(21, 44, 91) !important;
+}
+
+/* end Button */
+
 /* All font */
 .font-number {
   font-family: 'Roboto Mono', monospace;
@@ -42,8 +71,10 @@ h2.sub-title.text-center {
 .jumbotron-h1,
 .jumbotron-lead,
 h2.sub-title.text-center,
-button.button-jumbotron.btn.btn-primary {
-  font-family: 'Pacifico', cursive;
+button.button-jumbotron.btn.btn-primary,
+h2.title-image-login,
+h2.title-login {
+  font-family: 'Pacifico', sans-serif !important;
 }
 
 /* End All Font  */
@@ -127,6 +158,10 @@ i.fas.fa-user {
 a.nav-link,
 i.fas.fa-shopping-cart {
   color: #fff;
+}
+
+a.nav-link {
+  font-weight: 500;
 }
 
 a.nav-link:hover {
@@ -248,12 +283,177 @@ h2 {
   border-color: #ECB70A !important;
 }
 
-.card:hover {
+.card-product-homescreen.card:hover {
   box-shadow: 1px -1px 8px rgba(255, 203, 8, 1);
 }
 
 /* Close Card Product */
 
+/* ShippingScreeen */
+a.nav-link-shipping-screen.nav-link {
+  color: #ECB70A;
+}
+
+a.nav-link-shipping-screen.active.nav-link {
+  color: #fff;
+  background-color: #ECB70A;
+  border-radius: 5px;
+}
+
+/* End Shipping Screeen */
+
+/* Login */
+h2.title-login {
+  font-size: 3.12rem;
+}
+
+.image-login {
+  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%),
+    url(../src/Components/ImagesComponent/cookies.jpg);
+  background-position: center;
+  background-attachment: local;
+  background-size: cover;
+}
+
+.title-image-login {
+  color: white;
+  line-height: 3.2rem;
+}
+
+.login-text {
+  width: 461px;
+  font-size: .92rem;
+  font-weight: 500;
+}
+
+.icon-email {
+  position: absolute;
+  left: 12px;
+  top: 19px;
+  bottom: 23px;
+  font-size: 3.12rem;
+  color: #fff;
+}
+
+label.label-email.text-center.form-label {
+  position: absolute;
+  text-align: center;
+  margin: 10px 0 0 82px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+
+.group-email {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 400px;
+  height: 92px;
+}
+
+
+.input-email.form-control {
+  position: absolute;
+  width: 70% !important;
+  bottom: 10px;
+  left: 69px;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  background-color: transparent;
+  text-align: left;
+  color: rgba(255, 203, 8, 1);
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.input-email.form-control:-webkit-autofill,
+.input-email.form-control:-webkit-autofill:hover,
+.input-email.form-control:-webkit-autofill:focus,
+.input-email.form-control:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+  -webkit-text-fill-color: rgba(255, 203, 8, 1) !important;
+}
+
+.input-email.form-control:-webkit-autofill#username,
+.input-email.form-control:-webkit-autofill#usernameId_new,
+.input-email.form-control:-webkit-autofill:hover,
+.input-email.form-control:-webkit-autofill:focus,
+.input-email.form-control:-webkit-autofill:active {
+  -webkit-text-fill-color: #646464 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-padding-start: 8px !important;
+}
+
+.group-password {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 400px;
+  height: 92px;
+  margin-top: 30px;
+}
+
+.label-password {
+  position: absolute;
+  text-align: center;
+  margin: 10px 0 0 82px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.input-password.form-control {
+  position: absolute;
+  width: 70% !important;
+  bottom: 10px;
+  left: 69px;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+  background-color: transparent;
+  text-align: left;
+  color: rgba(255, 203, 8, 1);
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.icon-password {
+  position: absolute;
+  left: 12px;
+  top: 19px;
+  bottom: 23px;
+  font-size: 3.12rem;
+  color: #fff;
+}
+
+button.button-login.btn.btn-primary {
+  background-color: rgba(255, 201, 0, 1) !important;
+  border: none;
+  width: 100px;
+  height: 50px;
+  /* border-radius: 20px; */
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 500;
+}
+
+button.button-login.btn.btn-primary:hover {
+  background-color: rgba(21, 44, 91, 1) !important;
+  color: #fff;
+}
+
+.form-right {
+  margin-left: 92px;
+}
+
+.login-new-user {
+  margin-left: 210px;
+  font-weight: 500;
+}
+
+/* End Login */
+
+
+/* Query mobile */
 @media (max-width: 900px) {
   .carousel-caption h2 {
     font-size: 2.5vw;

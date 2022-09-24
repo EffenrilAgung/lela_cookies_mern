@@ -97,7 +97,7 @@ const ProductEditScreen = ({ match, history }) => {
         Kembali
       </Link>
       <FormContainer>
-        <h1>Edit Pengguna</h1>
+        <h2>Edit Produk</h2>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -107,7 +107,7 @@ const ProductEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Nama</Form.Label>
+              <Form.Label className="mt-2">Nama</Form.Label>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
@@ -117,7 +117,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Harga</Form.Label>
+              <Form.Label className="mt-2">Harga</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter Price"
@@ -127,7 +127,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="image">
-              <Form.Label>Upload Gambar</Form.Label>
+              <Form.Label className="mt-2">Upload Gambar</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter image url"
@@ -137,7 +137,9 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="image-file">
-              <Form.Label>Upload Image From Computer</Form.Label>
+              <Form.Label className="mt-2">
+                Upload Image From Computer
+              </Form.Label>
               <Form.Control
                 type="file"
                 onChange={uploadFileHandler}
@@ -147,7 +149,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="brand">
-              <Form.Label>Merk</Form.Label>
+              <Form.Label className="mt-2">Bahan Utama</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Masukkan Nama Merk Barang"
@@ -157,7 +159,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="countInStock">
-              <Form.Label>Jumlah Stock Barang</Form.Label>
+              <Form.Label className="mt-2">Jumlah Stock Barang</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Jumlah Stock Barang"
@@ -167,7 +169,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="category">
-              <Form.Label>Kategori</Form.Label>
+              <Form.Label className="mt-2">Kategori</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Masukkan Kategori Barang"
@@ -177,7 +179,7 @@ const ProductEditScreen = ({ match, history }) => {
             </Form.Group>
 
             <Form.Group controlId="description">
-              <Form.Label>Deskripsi</Form.Label>
+              <Form.Label className="mt-2">Deskripsi</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Masukkan Deskripsi Barang"
@@ -186,7 +188,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Button type="submit" variant="primary">
+            <Button type="submit" className="button-model-submit mt-2">
               Update
             </Button>
           </Form>
