@@ -31,7 +31,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
 
 // forgot passwrd
-// app.use(forgotpassword);
+app.use(forgotpassword);
 app.use(resetPassword);
 
 // paypal route

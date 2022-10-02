@@ -211,7 +211,7 @@ const resetPassword = AsyncHandler(async (req, res) => {
   const user = User.findOne({ resetPasswordLink: token });
   console.log(user);
 
-  // res.status(200).json({ status: true, message: 'Berhasil' });
+  res.status(200).json({ status: true, message: 'Berhasil' });
 });
 
 export {
