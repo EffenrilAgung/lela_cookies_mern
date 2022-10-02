@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Table, Form, Button, Row, Col } from 'react-bootstrap';
+import { Table, Form, Button, Row, Col, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
@@ -57,7 +57,7 @@ const RegisterScreen = ({ history }) => {
     }
   };
   return (
-    <>
+    <Container>
       <Row>
         <Col md={3}>
           <h2>Sign Up</h2>
@@ -176,7 +176,7 @@ const RegisterScreen = ({ history }) => {
           )}
         </Col>
       </Row>
-    </>
+    </Container>
   );
 };
 

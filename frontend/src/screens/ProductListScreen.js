@@ -72,76 +72,80 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <>
-      <Row className="align-items-center">
-        <Col>
-          <h1>Barang</h1>
-        </Col>
-        <Col className="d-flex justify-content-end">
-          <Button
-            className="button-model-submit my-3"
-            onClick={createProductHandler}
-          >
-            <i className="fas fa-plus text-white"></i> Buat Barang Baru
-          </Button>
-        </Col>
-      </Row>
-      {loadingDelete && <Loader />}
-      {errorDelete && <Message variant="danger">{errorDelete}</Message>}
-      {loadingCreate && <Loader />}
-      {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant="danger">{error}</Message>
-      ) : (
-        <>
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>NO</th>
-                <th>ID</th>
-                <th>NAMA</th>
-                <th>HARGA</th>
-                <th>KATEGORI</th>
-                <th>BAHAN UTAMA</th>
-                <th>ACTION</th>
-              </tr>
-            </thead>
+      <div className="py-2 container">
+        <Row className="align-items-center">
+          <Col>
+            <h1>Barang</h1>
+          </Col>
+          <Col className="d-flex justify-content-end">
+            <Button
+              className="button-model-submit my-3"
+              onClick={createProductHandler}
+            >
+              <i className="fas fa-plus text-white"></i> Buat Barang Baru
+            </Button>
+          </Col>
+        </Row>
+        {loadingDelete && <Loader />}
+        {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+        {loadingCreate && <Loader />}
+        {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : (
+          <>
+            <Table striped bordered hover responsive className="table-sm">
+              <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>ID</th>
+                  <th>NAMA</th>
+                  <th>HARGA</th>
+                  <th>KATEGORI</th>
+                  <th>BAHAN UTAMA</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
 
-            {products.map((product) => {
-              return (
-                <tbody key={product._id}>
-                  <tr>
-                    <td>{x++}</td>
-                    <td>{product._id}</td>
-                    <td>{product.name}</td>
-                    <td>
-                      <td> {FormatCurrency(product.price)}</td>
-                    </td>
-                    <td>{product.category}</td>
-                    <td>{product.brand}</td>
-                    <td>
-                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                        <Button variant="light" className="btn-sm">
-                          <i className="fas fa-edit"></i>
+              {products.map((product) => {
+                return (
+                  <tbody key={product._id}>
+                    <tr>
+                      <td>{x++}</td>
+                      <td>{product._id}</td>
+                      <td>{product.name}</td>
+                      <td>
+                        <td> {FormatCurrency(product.price)}</td>
+                      </td>
+                      <td>{product.category}</td>
+                      <td>{product.brand}</td>
+                      <td>
+                        <LinkContainer
+                          to={`/admin/product/${product._id}/edit`}
+                        >
+                          <Button variant="light" className="btn-sm">
+                            <i className="fas fa-edit"></i>
+                          </Button>
+                        </LinkContainer>
+                        <Button
+                          variant="danger"
+                          className="btn-sm"
+                          onClick={() => deleteHandler(product._id)}
+                        >
+                          <i className="fas fa-trash"></i>
                         </Button>
-                      </LinkContainer>
-                      <Button
-                        variant="danger"
-                        className="btn-sm"
-                        onClick={() => deleteHandler(product._id)}
-                      >
-                        <i className="fas fa-trash"></i>
-                      </Button>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
-          </Table>
-          <Paginate pages={pages} page={page} isAdmin={true}></Paginate>
-        </>
-      )}
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+            </Table>
+            <Paginate pages={pages} page={page} isAdmin={true}></Paginate>
+          </>
+        )}
+      </div>
     </>
   );
 };

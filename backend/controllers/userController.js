@@ -1,6 +1,8 @@
 import AsyncHandler from 'express-async-handler';
 import generateToken from '../utils/generateToken.js';
+import jsonwebtoken from 'jsonwebtoken';
 import User from '../models/userModel.js';
+import sendEmail from '../helpers/index.js';
 
 //  @desc   Auth user & get token
 //  @route  POST /api/users/login
@@ -162,6 +164,56 @@ const updateUser = AsyncHandler(async (req, res) => {
   }
 });
 
+//  @desc   Forgot Password User
+//  @route  PUT /forgotpassword
+//  @access Public
+const forgotpassword = AsyncHandler(async (req, res) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email: email });
+
+  if (user) {
+    const token = jsonwebtoken.sign(
+      {
+        id: user._id,
+      },
+      process.env.JWT_SECRET
+    );
+
+    await user.updateOne({ resetPasswordLink: token });
+
+    const link = `${process.env.CLIENT_URL}/reset-password/${user.id}/${token}`;
+
+    const templateEmail = {
+      from: 'Lela Cookies',
+      to: email,
+      subject: 'Link Reset Password',
+      html: `<p> Silahkan klik link dibawah untuk melakukan reset password anda </p><p>${link}</p>`,
+    };
+    console.log(link);
+
+    sendEmail(templateEmail);
+    return res.status(200).json({
+      status: true,
+      message: 'link reset password terkirim',
+    });
+  } else {
+    res.status(500);
+    throw new Error('Email Tidak Tersedia');
+  }
+});
+
+const resetPassword = AsyncHandler(async (req, res) => {
+  const { password, token } = req.body;
+  console.log('token', token);
+  console.log('password', password);
+
+  const user = User.findOne({ resetPasswordLink: token });
+  console.log(user);
+
+  // res.status(200).json({ status: true, message: 'Berhasil' });
+});
+
 export {
   authUser,
   registerUser,
@@ -171,4 +223,6 @@ export {
   deleteUser,
   getUsersById,
   updateUser,
+  forgotpassword,
+  resetPassword,
 };

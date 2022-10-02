@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
-import FormContainer from '../Components/FormContainer';
 import { getUserDetails, updateUser } from '../action/userAction';
 import { USER_UPDATE_RESET } from '../constants/userConstants';
 
@@ -49,53 +48,55 @@ const UserEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <Link to="/admin/userList" className="btn btn-light my-3">
-        Go Back
-      </Link>
-      <FormContainer>
-        <h1>Edit Pengguna</h1>
-        {loadingUpdate && <Loader />}
-        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : (
-          <Form onSubmit={submitHandler}>
-            <Form.Group controlId="name">
-              <Form.Label>Nama</Form.Label>
-              <Form.Control
-                type="name"
-                placeholder="Enter name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+      <Container>
+        <Link to="/admin/userList" className="btn btn-light my-3">
+          Go Back
+        </Link>
+        <div className="py-2">
+          <h1>Edit Pengguna</h1>
+          {loadingUpdate && <Loader />}
+          {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <Form onSubmit={submitHandler}>
+              <Form.Group controlId="name">
+                <Form.Label>Nama</Form.Label>
+                <Form.Control
+                  type="name"
+                  placeholder="Enter name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-            <Form.Group controlId="email">
-              <Form.Label>Alamat Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
+              <Form.Group controlId="email">
+                <Form.Label>Alamat Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-            <Form.Check
-              type="switch"
-              id="custom-switch"
-              label="Jadikan Sebagai Admin"
-              checked={isAdmin}
-              onChange={(e) => setIsAdmin(e.target.checked)}
-            />
+              <Form.Check
+                type="switch"
+                id="custom-switch"
+                label="Jadikan Sebagai Admin"
+                checked={isAdmin}
+                onChange={(e) => setIsAdmin(e.target.checked)}
+              />
 
-            <Button type="submit" variant="primary">
-              Daftar
-            </Button>
-          </Form>
-        )}
-      </FormContainer>
+              <Button type="submit" variant="primary">
+                Daftar
+              </Button>
+            </Form>
+          )}
+        </div>
+      </Container>
     </>
   );
 };
