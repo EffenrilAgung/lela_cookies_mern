@@ -75,11 +75,11 @@ const ProductListScreen = ({ history, match }) => {
       <div className="py-2 container">
         <Row className="align-items-center">
           <Col>
-            <h1>Barang</h1>
+            <h2 className="title-product-list-screen">Barang</h2>
           </Col>
           <Col className="d-flex justify-content-end">
             <Button
-              className="button-model-submit my-3"
+              className="button-model-submit my-3 button-product-list-screen"
               onClick={createProductHandler}
             >
               <i className="fas fa-plus text-white"></i> Buat Barang Baru
@@ -96,7 +96,13 @@ const ProductListScreen = ({ history, match }) => {
           <Message variant="danger">{error}</Message>
         ) : (
           <>
-            <Table striped bordered hover responsive className="table-sm">
+            <Table
+              striped
+              bordered
+              hover
+              responsive
+              className="table-sm table-container table-container-product-list-screen"
+            >
               <thead>
                 <tr>
                   <th>NO</th>
@@ -104,7 +110,7 @@ const ProductListScreen = ({ history, match }) => {
                   <th>NAMA</th>
                   <th>HARGA</th>
                   <th>KATEGORI</th>
-                  <th>BAHAN UTAMA</th>
+                  <th>RASA</th>
                   <th>ACTION</th>
                 </tr>
               </thead>
@@ -113,15 +119,15 @@ const ProductListScreen = ({ history, match }) => {
                 return (
                   <tbody key={product._id}>
                     <tr>
-                      <td>{x++}</td>
+                      <td className="text-center">{x++}</td>
                       <td>{product._id}</td>
                       <td>{product.name}</td>
                       <td>
                         <td> {FormatCurrency(product.price)}</td>
                       </td>
                       <td>{product.category}</td>
-                      <td>{product.brand}</td>
-                      <td>
+                      <td>{product.flavor}</td>
+                      <td className="text-center">
                         <LinkContainer
                           to={`/admin/product/${product._id}/edit`}
                         >

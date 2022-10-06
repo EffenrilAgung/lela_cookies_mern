@@ -2,14 +2,17 @@
 /* 
 font-family: 'Poppins', sans-serif;
 font-family: 'Pacifico', cursive;
+font-family: 'Noto Sans Mono', monospace;
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;400;500;600;700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;400&family=Pacifico&family=Poppins:wght@100;300;400;500;600;700&display=swap');
 
 /* Global  */
-html {
+/* html {
   overflow-x: hidden;
-}
+} */
 
 * {
   color: #212529;
@@ -37,12 +40,23 @@ h2.sub-title.text-center {
 /* Link Product */
 a.link-product {
   color: #165798;
+  font-weight: 500;
 }
 
 a.link-product:hover {
   color: #ECB70A;
   font-weight: 500;
 }
+
+.total-order-place-order-screen {
+  font-weight: 500;
+}
+
+.order-summary-place-order-screen {
+  font-weight: 500;
+}
+
+
 
 /* End Link Product */
 
@@ -51,12 +65,14 @@ a.link-product:hover {
   background-color: #ECB70A !important;
   color: #000 !important;
   border-color: #ECB70A !important;
+  font-weight: 500;
 }
 
 .button-model-submit:hover {
   background-color: rgb(21, 44, 91) !important;
   color: #fff !important;
   border-color: rgb(21, 44, 91) !important;
+  font-weight: 500;
 }
 
 /* end Button */
@@ -82,11 +98,50 @@ h2.name-title-owner,
 
 /* End All Font  */
 /* End All Font */
+
+/* Button */
+.button-effect-mod {
+  background-color: #FFCB08 !important;
+  color: #000 !important;
+  border: 0 !important;
+}
+
+.button-effect-mod:hover {
+  background-color: #2E00B1 !important;
+  color: #fff !important;
+  transition: all 500ms ease-in-out !important;
+}
+
+/* Alert */
+.alert-container-success,
+.alert-container-fail {
+  font-weight: 500 !important;
+  color: #000 !important;
+}
+
+
+/* End Alert */
+
+/* table */
+.table-container thead tr th {
+  text-align: center;
+  font-weight: 500;
+  background-color: #FFCB08;
+}
+
+.table-container tbody tr td {
+  font-family: 'Noto Sans Mono', monospace;
+  color: #000;
+  font-weight: 400;
+}
+
+/* end table */
+
 /* End Global */
 
 /* Jumbotron */
 .jumbotron {
-  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%), url(../src/Components/ImagesComponent/cookies.jpg);
+  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%), url(../../Components/ImagesComponent/cookies.jpg);
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -313,7 +368,7 @@ h2.title-login {
 
 .image-login {
   background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%),
-    url(../src/Components/ImagesComponent/cookies.jpg);
+    url(../../Components/ImagesComponent/cookies.jpg);
   background-position: center;
   background-attachment: local;
   background-size: cover;
@@ -449,21 +504,56 @@ button.button-login.btn.btn-primary:hover {
   margin-left: 92px;
 }
 
-
 .login-new-user {
-  margin-left: 210px;
+  margin-left: 0;
   font-weight: 500;
+  margin-bottom: 1rem;
+  margin-top: .2rem;
+}
+
+.login-new-user a:nth-child(2) {
+  color: #ECB70A !important;
+}
+
+.forgot-password {
+  margin-right: 5.5rem;
+  font-weight: 500;
+  color: #ECB70A;
 }
 
 .container-mobile {
 
-  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%), url(./Components/ImagesComponent/background-login-phone.jpg);
+  background: linear-gradient(109.65deg, rgba(17, 17, 17, 0.33) 22.86%, rgba(191, 150, 4, 0.33) 99.36%), url(../../Components/ImagesComponent/background-login-phone.jpg);
 
   background-size: cover;
   background-position: center;
 }
 
 /* End Login */
+
+/* Shipping Screen */
+.title-shipping {
+  font-size: 1.875rem;
+  text-align: center;
+}
+
+/* End Shipping Screen */
+
+/* Payment Method */
+.title-payment-method {
+  font-size: 1.875rem;
+}
+
+.sub-title-method-payment {
+  font-size: 1rem;
+  margin-top: .25rem;
+}
+
+.form-check-method-payment {
+  margin-left: .5rem;
+}
+
+/* end Payment Method */
 
 
 /* Footer */
@@ -563,7 +653,7 @@ h2.name-title-owner,
 
 .image-sign-up {
   background: linear-gradient(110.24deg, rgba(0, 0, 0, 0.33) 27.57%, rgba(191, 150, 4, 0.33) 99.37%),
-    url(../src/Components/ImagesComponent/black-cookie.jpg);
+    url(../../Components/ImagesComponent/black-cookie.jpg);
   background-position: center;
   background-attachment: local;
   background-size: cover;
@@ -630,157 +720,201 @@ h2.name-title-owner,
 
 /* end sign up */
 
+/* Place Order Screen */
+.title-place-order-screen {
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 0 !important;
+  margin-bottom: 1rem;
+}
 
+.sub-title-place-order-screen {
+  text-indent: 1.8rem;
+  font-weight: 500;
+}
 
-/* Query mobile */
-@media (max-width: 900px) {
-  .carousel-caption h2 {
-    font-size: 2.5vw;
-  }
+.container-sub-title-place-order-screen {
+  margin-left: 1.8rem;
+}
 
-  .title-login {
-    color: #000 !important;
-  }
+.container-sub-title-place-order-screen p strong {
+  font-weight: 500;
+}
 
-  .login-text {
-    color: #fff;
-    min-width: 57vw;
-    max-width: 100vw;
-    text-align: justify;
-  }
+.container-sub-title-place-order-screen p {
+  margin-bottom: 0;
+}
 
-  .container-form-sign-up {
-    margin: 0;
+.second-title {
+  margin-bottom: 1rem !important;
+}
 
-  }
+.image-place-order-screen {
+  height: 3.4rem !important;
+  width: 100%;
+  object-fit: cover;
+}
 
-  .form-input-sign-up.form-control {
-    width: 100%;
-  }
-
-  .title-font-yellow {
-    font-size: 1.5rem;
-  }
-
+.col-place-order-screen {
+  border: 1px;
 
 }
 
+/* End PlaceOrder Screen */
 
-@media (max-width: 991px) {
-  .jumbotron-h1 {
-    font-size: 3.4vw;
-  }
-
-  .jumbotron-lead {
-    font-size: 2.1vw;
-  }
+/* Order Screeen */
+.title-order-screen {
+  font-weight: 600;
+  font-size: 1.875rem;
 }
 
-@media (max-width: 767px) {
-  .container-keep-connect {
-    margin-left: 0;
-    margin-bottom: 22px;
-  }
+.delivery-title-order-screen {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: .3125rem;
 }
 
-@media only screen and (max-width: 390px) {
-  * {
-    font-size: 16px;
-  }
+.container-col-delivery-order-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title-description-delivery-order-screen {
+  margin: 0;
+}
+
+/* End Order Screen */
+
+/* Profile screen */
+.title-profile-screen {
+  font-size: 1.875rem;
+  font-weight: 500;
+}
+
+.container-form-input-profile-screen {
+  margin-top: 1rem;
+}
+
+.form-control-profile-screen {
+  background-color: #F5F5F5 !important;
+  color: #000 !important;
+  font-weight: 400 !important;
+}
 
 
+.container-table-profile-screen {
+  width: 1000vw !important;
+  height: 50vh;
+  position: relative;
+  overflow: auto;
+}
 
-
-  h2.title-login {
-    font-size: 2rem;
-    margin: 0;
-  }
-
-  .login-text {
-    font-size: 1rem;
-    width: 308px;
-    font-size: .625rem;
-    text-align: center;
-    font-weight: 500 !important;
-
-  }
-
-  .group-email {
-    width: 300px;
-    height: 55px;
-    margin: 0 auto;
-  }
-
-  label.label-email.text-center.form-label {
-    top: 3px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .icon-email {
-    font-size: 2.1rem;
-    left: 16px;
-    top: 12px;
-    bottom: 11px;
-  }
-
-  .input-email.form-control {
-    width: 60%;
-    height: 24px;
-    bottom: 0;
-    font-size: 1rem;
-    top: 24px;
-    border: none;
-  }
-
-  .group-password {
-    width: 300px;
-    height: 55px;
-    margin: 15px auto 0 auto;
-  }
-
-  .label-password {
-    top: 3px;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin: 0 0 0 82px;
-  }
-
-  .icon-password {
-    font-size: 2.1rem;
-    left: 16px;
-    top: 12px;
-    bottom: 11px;
-  }
-
-  .input-password.form-control {
-    width: 50%;
-    height: 24px;
-    bottom: 0;
-    font-size: 1rem;
-    top: 24px;
-    border: none;
-  }
-
-  .login-new-user {
-    margin-left: 100px;
-    color: #fff;
-  }
-
-  .mobile-yellow-span {
-    font-size: 20px !important;
-  }
-
-  button.button-login.btn.btn-primary {
-    width: 124px;
-    height: 40px;
-    font-weight: 500;
-  }
+.my-order-profile-screen {
+  width: 100vw !important;
+  position: absolute;
+  overflow: scroll;
 
 }
 
-@media only screen and (max-width: 360px) {
-  .jumbotron-h1 {
-    font-size: 2rem;
-  }
+.my-order-profile-screen thead tr {
+  background-color: #ECB70A;
+  color: #000;
 }
+
+.my-order-profile-screen thead tr th {
+  font-weight: 500;
+}
+
+.my-order-profile-screen tbody td {
+  color: #000;
+  font-family: 'Noto Sans Mono', monospace !important;
+  font-weight: 400;
+}
+
+/* end profile screen */
+
+/* User List Screen */
+.container-table-user-list-screen {
+  overflow: auto;
+}
+
+.container-table-user-list-screen thead tr th {
+  text-align: center;
+  font-weight: 400;
+  background-color: #ECB70A;
+}
+
+.container-table-user-list-screen tbody td {
+  color: #000;
+  font-family: 'Noto Sans Mono', monospace !important;
+  font-weight: 400;
+}
+
+.container-table-user-list-screen table {
+  width: 70rem;
+}
+
+.td-name-profile-screen {
+  font-weight: 500;
+}
+
+/* End User List Screen */
+
+/* User Edit Screen */
+.title-user-edit-screen {
+  font-size: 1.875rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-label-user-edit-screen {
+  font-weight: 500;
+}
+
+
+
+.input-form-user-edit-screen.form-control {
+  background-color: #F5F5F5;
+  color: #000;
+  font-weight: 400;
+}
+
+/* End User Edit Screen */
+
+/* product-list-screen */
+.title-product-list-screen {
+  font-size: 1.875rem;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+/* end Product list screen */
+
+/* Product Edit Screen */
+.title-product-edit-scren {
+  font-size: 1.875rem;
+  font-weight: 500;
+}
+
+.constainer-form-product-edit-screen div {
+  margin-bottom: 1.5625rem;
+}
+
+.constainer-form-product-edit-screen div .form-label {
+  margin-top: 0 !important;
+  font-weight: 400 !important;
+  color: #000;
+  font-size: 1rem;
+}
+
+.constainer-form-product-edit-screen div .form-control {
+  background-color: #F5F5F5;
+  border: 0;
+  color: rgb(0, 0, 0);
+  border-radius: 2px;
+}
+
+/* end product Edit Screen */

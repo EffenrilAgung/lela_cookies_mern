@@ -69,6 +69,7 @@ const CartScreen = ({ match, location, history }) => {
                       <Col md={2}>Rp. {FormatCurrency(item.price)}</Col>
                       <Col md={2}>
                         <Form.Select
+                          className="form-select-cart-screen"
                           value={item.qty}
                           onChange={(e) =>
                             dispatch(

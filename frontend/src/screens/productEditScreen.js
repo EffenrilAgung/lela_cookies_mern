@@ -15,7 +15,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
-  const [brand, setBrand] = useState('');
+  const [flavor, setFlavor] = useState('');
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
@@ -44,7 +44,7 @@ const ProductEditScreen = ({ match, history }) => {
         setName(product.name);
         setPrice(product.price);
         setImage(product.image);
-        setBrand(product.brand);
+        setFlavor(product.flavor);
         setCategory(product.category);
         setCountInStock(product.countInStock);
         setDescription(product.description);
@@ -83,7 +83,7 @@ const ProductEditScreen = ({ match, history }) => {
         name,
         price,
         image,
-        brand,
+        flavor,
         category,
         description,
         countInStock,
@@ -98,7 +98,7 @@ const ProductEditScreen = ({ match, history }) => {
           Kembali
         </Link>
         <FormContainer>
-          <h2>Edit Produk</h2>
+          <h2 className="title-product-edit-scren">Edit Produk</h2>
           {loadingUpdate && <Loader />}
           {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
           {loading ? (
@@ -106,7 +106,10 @@ const ProductEditScreen = ({ match, history }) => {
           ) : error ? (
             <Message variant="danger">{error}</Message>
           ) : (
-            <Form onSubmit={submitHandler}>
+            <Form
+              onSubmit={submitHandler}
+              className="constainer-form-product-edit-screen"
+            >
               <Form.Group controlId="name">
                 <Form.Label className="mt-2">Nama</Form.Label>
                 <Form.Control
@@ -150,12 +153,12 @@ const ProductEditScreen = ({ match, history }) => {
               </Form.Group>
 
               <Form.Group controlId="brand">
-                <Form.Label className="mt-2">Bahan Utama</Form.Label>
+                <Form.Label className="mt-2">Rasa</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Masukkan Nama Merk Barang"
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
+                  value={flavor}
+                  onChange={(e) => setFlavor(e.target.value)}
                 ></Form.Control>
               </Form.Group>
 
@@ -189,8 +192,8 @@ const ProductEditScreen = ({ match, history }) => {
                 ></Form.Control>
               </Form.Group>
 
-              <Button type="submit" className="button-model-submit mt-2">
-                Update
+              <Button type="submit" className="btn button-model-submit mt-2">
+                Simpan
               </Button>
             </Form>
           )}

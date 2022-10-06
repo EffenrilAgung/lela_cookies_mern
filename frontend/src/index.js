@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './store';
-import './index.css';
-import './bootstrap.min.css';
+import './style/modStyle/index.css';
+import './style/query/query.css';
+import './style/bootstrap/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

@@ -12,6 +12,7 @@ import {
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants';
 import FormatCurrency from '../Components/FormatCurrency';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -94,80 +95,127 @@ const OrderScreen = ({ match, history }) => {
   ) : (
     <>
       <div className="py-5 container">
-        <h2>Order {order._id}</h2>
+        <h2 className="title-order-screen">Order {order._id}</h2>
         <Row>
-          <Col md={8}>
+          <Col md={8} className="ps-0">
             <ListGroup variant="flush">
               <ListGroup.Item>
-                <h2>Pengiriman</h2>
-                <p>
+                <h2 className="title-order-screen">Data Penerima</h2>
+                <p className="delivery-title-order-screen">
                   <strong>Name : </strong> {order.user.name}
                 </p>
-                <p>
+                <p className="delivery-title-order-screen">
                   <strong>Email : </strong>
                   <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
                 </p>
-                <p>
-                  <strong>Address:</strong>
-                  {order.shippingAddress.address},{order.shippingAddress.city},
-                  {order.shippingAddress.postalCode},
-                  {order.shippingAddress.phoneNumber},
-                  {order.shippingAddress.provinsi},
+                <p className="delivery-title-order-screen">
+                  <strong>Address : </strong>
+                  {order.shippingAddress.recipentName},
+                  {order.shippingAddress.phoneNumber},{' '}
+                  {order.shippingAddress.provinsi},{order.shippingAddress.city},
                   {order.shippingAddress.kecamatan},
                   {order.shippingAddress.kelurahan},
+                  {order.shippingAddress.postalCode},
+                  {order.shippingAddress.address},
                 </p>
                 {order.isDelivered ? (
-                  <Message variant="success">
-                    Dalam Proses Pengiriman {order.deliveredAt}
+                  <Message
+                    variant="success"
+                    className="alert-container-success"
+                  >
+                    Terkirim Pada {order.deliveredAt}
                   </Message>
                 ) : (
-                  <Message variant="danger">Belum Dikirim</Message>
+                  <Message variant="danger" className="alert-container-fail">
+                    Tidak Terkirim
+                  </Message>
                 )}
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <h2>Metode Pembayaran</h2>
+                <h2 className="title-order-screen">Metode Pembayaran</h2>
                 <p>
                   <strong>Metode : </strong>
                   {order.paymentMethod}
                 </p>
                 {order.isPaid ? (
-                  <Message variant="success">Terbayar {order.paidAt}</Message>
+                  <Message
+                    variant="success"
+                    className="alert-container-success"
+                  >
+                    Terbayar {order.paidAt}
+                  </Message>
                 ) : (
-                  <Message variant="danger">Belum Terbayar</Message>
+                  <Message variant="danger" className="alert-container-fail">
+                    Belum Terbayar
+                  </Message>
                 )}
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <h2>Order Items</h2>
+                <h2 className="title-order-screen">Order Items</h2>
                 {order.orderItems.length === 0 ? (
                   <Message>Order Kosong</Message>
                 ) : (
-                  <ListGroup variant="flush">
-                    {order.orderItems.map((item, index) => (
-                      <ListGroup.Item key={index}>
-                        <Row>
-                          <Col md={1}>
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              fluid
-                              rounded
-                            />
-                          </Col>
-                          <Col>
-                            <Link to={`/product/${item.product}`}>
-                              {item.name}
-                            </Link>
-                          </Col>
-                          <Col md={4}>
-                            {item.qty} x Rp. {item.price} = Rp.{' '}
-                            {item.qty * item.price}
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
+                  <>
+                    <BrowserView>
+                      <ListGroup variant="flush">
+                        {order.orderItems.map((item, index) => (
+                          <ListGroup.Item key={index}>
+                            <Row>
+                              <Col md={1}>
+                                <Image
+                                  src={item.image}
+                                  alt={item.name}
+                                  fluid
+                                  rounded
+                                />
+                              </Col>
+                              <Col>
+                                <Link to={`/product/${item.product}`}>
+                                  {item.name}
+                                </Link>
+                              </Col>
+                              <Col md={4}>
+                                {item.qty} x Rp. {item.price} = Rp.{' '}
+                                {item.qty * item.price}
+                              </Col>
+                            </Row>
+                          </ListGroup.Item>
+                        ))}
+                      </ListGroup>
+                    </BrowserView>
+                    <MobileView>
+                      <ListGroup variant="flush">
+                        {order.orderItems.map((item, index) => (
+                          <ListGroup.Item key={index}>
+                            <Row>
+                              <Col md={1}>
+                                <Image
+                                  src={item.image}
+                                  alt={item.name}
+                                  fluid
+                                  rounded
+                                />
+                              </Col>
+                              <Col className="name-product-order-screen">
+                                <Link to={`/product/${item.product}`}>
+                                  {item.name}
+                                </Link>
+                              </Col>
+                              <Col
+                                md={4}
+                                className="total-product-order-screen"
+                              >
+                                {item.qty} x Rp. {item.price} = Rp.{' '}
+                                {item.qty * item.price}
+                              </Col>
+                            </Row>
+                          </ListGroup.Item>
+                        ))}
+                      </ListGroup>
+                    </MobileView>
+                  </>
                 )}
               </ListGroup.Item>
             </ListGroup>

@@ -26,13 +26,19 @@ const OrderListScreen = ({ history }) => {
   return (
     <>
       <div className="py-2 container">
-        <h1>Order</h1>
+        <h2>Order</h2>
         {loading ? (
           <Loader />
         ) : error ? (
           <Message variant="danger">{error}</Message>
         ) : (
-          <Table striped bordered hover responsive className="table-sm">
+          <Table
+            striped
+            bordered
+            hover
+            responsive
+            className="table-sm table-container container-table-order-list-screen"
+          >
             <thead>
               <tr>
                 <th>ID</th>
@@ -53,7 +59,7 @@ const OrderListScreen = ({ history }) => {
                     <td>{order.user && order.user.name}</td>
                     <td>{order.create_At}</td>
                     <td>{order.totalPrice}</td>
-                    <td>
+                    <td className="text-center">
                       {order.isPaid ? (
                         order.paidAt
                       ) : (
@@ -63,7 +69,7 @@ const OrderListScreen = ({ history }) => {
                         ></i>
                       )}
                     </td>
-                    <td>
+                    <td className="text-center">
                       {order.isDelivered ? (
                         order.deliveredAt
                       ) : (
@@ -75,7 +81,10 @@ const OrderListScreen = ({ history }) => {
                     </td>
                     <td>
                       <LinkContainer to={`/order/${order._id}`}>
-                        <Button variant="light" className="btn-sm">
+                        <Button
+                          variant="light"
+                          className="btn-sm button-effect-mod"
+                        >
                           Rincian
                         </Button>
                       </LinkContainer>

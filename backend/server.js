@@ -10,7 +10,7 @@ import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
-import { forgotpassword, resetPassword } from './controllers/UserController.js';
+import RoutingForgotPassword from './routes/RoutingForgotPassword.js';
 dotenv.config();
 
 connectDB();
@@ -29,10 +29,6 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
-
-// forgot passwrd
-app.use(forgotpassword);
-app.use(resetPassword);
 
 // paypal route
 app.get('/api/config/paypal', (req, res) =>
@@ -54,6 +50,9 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API IS Running');
   });
 }
+
+// forgot passwrd
+app.use('/', RoutingForgotPassword);
 
 app.use(notFound);
 

@@ -78,6 +78,9 @@ const MobileLoginScreen = ({ location, history }) => {
                   ></Form.Control>
                 </Form.Group>
                 <span className="login-new-user d-block">
+                  <Link to={'/forgot-password'} className="forgot-password">
+                    Lupa Password
+                  </Link>
                   Pelanggan Baru?{' '}
                   <Link
                     to={
@@ -140,10 +143,12 @@ const MobileLoginScreen = ({ location, history }) => {
               <span className="login-new-user d-block mb-3">
                 Pelanggan Baru?{' '}
                 <Link
-                  style={{ color: 'rgba(255, 203, 8, 1)', fontWeight: '500' }}
                   to={redirect ? `/register?redirect=${redirect}` : '/register'}
                 >
                   Daftar
+                </Link>
+                <Link to={'/forgot-password'} className="forgot-password">
+                  Lupa Password
                 </Link>
               </span>
               <Button type="submit" className="button-login" variant="primary">

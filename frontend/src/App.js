@@ -52,7 +52,6 @@ const App = () => {
 
         <Route path="/profile" component={ProfileScreen} />
         <Route path="/shipping" component={ShippingScreen} />
-        {/* <Route path="/shipping" component={Coba2} /> */}
         <Route path="/payment" component={paymentScreen} />
         <Route path="/placeorder" component={placeOrderScreen} />
         <Route path="/order/:id" component={OrderScreen} />

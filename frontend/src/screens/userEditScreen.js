@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Components/message';
 import Loader from '../Components/loader';
@@ -50,10 +50,10 @@ const UserEditScreen = ({ match, history }) => {
     <>
       <Container>
         <Link to="/admin/userList" className="btn btn-light my-3">
-          Go Back
+          Kembali
         </Link>
         <div className="py-2">
-          <h1>Edit Pengguna</h1>
+          <h2 className="title-user-edit-screen">Edit Pengguna</h2>
           {loadingUpdate && <Loader />}
           {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
           {loading ? (
@@ -61,39 +61,54 @@ const UserEditScreen = ({ match, history }) => {
           ) : error ? (
             <Message variant="danger">{error}</Message>
           ) : (
-            <Form onSubmit={submitHandler}>
-              <Form.Group controlId="name">
-                <Form.Label>Nama</Form.Label>
-                <Form.Control
-                  type="name"
-                  placeholder="Enter name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+            <Row className="d-flex justify-content-center">
+              <Col md={5}>
+                <Form onSubmit={submitHandler}>
+                  <Form.Group controlId="name">
+                    <Form.Label className="form-label-user-edit-screen">
+                      Nama
+                    </Form.Label>
+                    <Form.Control
+                      type="name"
+                      placeholder="Enter name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="input-form-user-edit-screen"
+                    ></Form.Control>
+                  </Form.Group>
 
-              <Form.Group controlId="email">
-                <Form.Label>Alamat Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+                  <Form.Group controlId="email" className="mt-3">
+                    <Form.Label className="form-label-user-edit-screen">
+                      Alamat Email
+                    </Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="input-form-user-edit-screen"
+                    ></Form.Control>
+                  </Form.Group>
 
-              <Form.Check
-                type="switch"
-                id="custom-switch"
-                label="Jadikan Sebagai Admin"
-                checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}
-              />
+                  <Form.Check
+                    className="font-weight-bold"
+                    type="switch"
+                    id="custom-switch"
+                    label="Jadikan Sebagai Admin"
+                    checked={isAdmin}
+                    onChange={(e) => setIsAdmin(e.target.checked)}
+                  />
 
-              <Button type="submit" variant="primary">
-                Daftar
-              </Button>
-            </Form>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="btn mt-2 button-model-submit"
+                  >
+                    Simpan
+                  </Button>
+                </Form>
+              </Col>
+            </Row>
           )}
         </div>
       </Container>

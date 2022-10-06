@@ -8,7 +8,7 @@ const sendEmail = (payload) => {
     requireTLS: true,
     auth: {
       user: 'effenrilagung300@gmail.com',
-      pass: 'bzpnkfmyrfzkbnxz',
+      pass: 'tpwjpriewekjnmky',
     },
   });
   return transporter

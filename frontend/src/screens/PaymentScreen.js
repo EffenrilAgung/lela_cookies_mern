@@ -28,12 +28,16 @@ const PaymentScreen = ({ history }) => {
 
   return (
     <FormContainer>
-      <CheckoutSteps step1 step2 step3 />
-      <h1>Metode Pembayaran</h1>
+      <div className="mt-5">
+        <CheckoutSteps step1 step2 step3 />
+      </div>
+      <h2 className="title-payment-method">Metode Pembayaran</h2>
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as="legend">Pilih Metode Pembayaran</Form.Label>
-          <Col>
+          <Form.Label as="legend" className="sub-title-method-payment">
+            Pilih Metode Pembayaran
+          </Form.Label>
+          <Col className="form-check-method-payment">
             <Form.Check
               className="my-2"
               type="radio"
@@ -55,7 +59,7 @@ const PaymentScreen = ({ history }) => {
           </Col>
         </Form.Group>
 
-        <Button type="submit" className="button-model-submit">
+        <Button type="submit" className="button-model-submit button-effect-mod">
           Lanjutkan
         </Button>
       </Form>
