@@ -46,8 +46,8 @@ const forgotPassword = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const { token, password } = req.body;
-    console.log('Token', token);
-    console.log('passWord', password);
+    console.log('token', token);
+    console.log('password', password);
     const user = await User.findOne({ resetPasswordLink: token });
     console.log(user);
     if (user) {

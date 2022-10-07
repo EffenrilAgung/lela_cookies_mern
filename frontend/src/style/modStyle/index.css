@@ -10,9 +10,9 @@ font-family: 'Noto Sans Mono', monospace;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;400&family=Pacifico&family=Poppins:wght@100;300;400;500;600;700&display=swap');
 
 /* Global  */
-/* html {
+html {
   overflow-x: hidden;
-} */
+}
 
 * {
   color: #212529;
@@ -833,6 +833,20 @@ h2.name-title-owner,
   font-weight: 400;
 }
 
+.container-table-profile-screen::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.container-table-profile-screen::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.container-table-profile-screen::-webkit-scrollbar-thumb {
+  background: #ECB70A;
+}
+
 /* end profile screen */
 
 /* User List Screen */
@@ -918,3 +932,59 @@ h2.name-title-owner,
 }
 
 /* end product Edit Screen */
+
+/* Reset Password */
+.title-reset-password {
+  font-size: 1.875rem;
+}
+
+.container-content-reset-password {
+  height: 80vh;
+}
+
+.container-div-reset-password {
+  border: 1px solid #ECB70A;
+  padding: 3rem;
+  border-radius: 5px;
+}
+
+
+.container-content-reset-password form label.form-label {
+  margin-bottom: 0px;
+}
+
+.container-content-reset-password input.form-control {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  border: 0;
+}
+
+
+/* end reset password */
+
+/* Link reset-password */
+.image-link-reset-password {
+  width: 20rem;
+}
+
+.text-contruction-reset-password p {
+  width: 20rem;
+  text-align: center;
+  margin-right: 0px;
+  color: #777777;
+  font-size: .9rem;
+}
+
+.container-form-link-reset-password label.form-label {
+  margin-bottom: 0;
+}
+
+.container-form-link-reset-password .form-control {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
+  width: 30rem;
+}
+
+/* End Link Reset password */

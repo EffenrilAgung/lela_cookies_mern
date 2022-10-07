@@ -11,6 +11,7 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import RoutingForgotPassword from './routes/RoutingForgotPassword.js';
+import cors from 'cors';
 dotenv.config();
 
 connectDB();
@@ -52,6 +53,20 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // forgot passwrd
+app.use(
+  cors({
+    origin: '*',
+  })
+);
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader(
+//     'Access-Control-Allow-Methods',
+//     'GET, POST, PUT, PATCH, DELETED, OPTIONS'
+//   );
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+// });
+
 app.use('/', RoutingForgotPassword);
 
 app.use(notFound);
