@@ -32,7 +32,7 @@ const forgotPassword = async (req, res) => {
     };
     sendEmail(templateEmail);
 
-    console.log(token);
+    token;
     return res.status(200).json({
       status: true,
       message: 'link reset password terkirim',
@@ -48,10 +48,10 @@ const forgotPassword = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const { token, password } = req.body;
-    console.log('token', token);
-    console.log('password', password);
+    'token', token;
+    'password', password;
     const user = await User.findOne({ resetPasswordLink: token });
-    console.log(user);
+    user;
     if (user) {
       if (req.body.password) {
         user.password = req.body.password;

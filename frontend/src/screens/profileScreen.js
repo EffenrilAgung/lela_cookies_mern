@@ -6,6 +6,7 @@ import Message from '../Components/message';
 import Loader from '../Components/loader';
 import { getUserDetails, updateUserProfile } from '../action/userAction';
 import { listMyOrders } from '../action/orderAction';
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 
 const RegisterScreen = ({ history }) => {
   const [name, setName] = useState('');
@@ -13,6 +14,7 @@ const RegisterScreen = ({ history }) => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState(null);
+
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
@@ -32,6 +34,7 @@ const RegisterScreen = ({ history }) => {
       history.push('/login');
     } else {
       if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails('profile'));
         dispatch(listMyOrders());
       } else {

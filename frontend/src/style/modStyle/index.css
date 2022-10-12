@@ -975,8 +975,11 @@ h2.name-title-owner,
   font-size: .9rem;
 }
 
+
 .container-form-link-reset-password label.form-label {
   margin-bottom: 0;
+  color: black;
+  font-weight: 400;
 }
 
 .container-form-link-reset-password .form-control {
@@ -984,7 +987,7 @@ h2.name-title-owner,
   border-radius: 5px;
   border: 0;
   margin-bottom: 1rem;
-  width: 30rem;
+
 }
 
 /* End Link Reset password */

@@ -13,7 +13,7 @@ const LinkResetPassword = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     await axios
-      .put('http://localhost:4000/forgotpassword', { email: email })
+      .put('http://localhost:4001/forgotpassword', { email: email })
       .then((res) => {
         if (res) {
           setAlertMessage(true);
@@ -33,15 +33,22 @@ const LinkResetPassword = () => {
   return (
     <>
       <Container>
-        <Row className="justify-content-md-center">
-          <Col md={6}>
-            <Form onSubmit={onSubmitHandler}>
+        <Form onSubmit={onSubmitHandler}>
+          <Row>
+            <Col md={12}>
               <h2 className="text-center">Masukkan Email Terdaftar</h2>
               <div className="text-contruction-reset-password d-flex justify-content-center">
                 <p>
                   Jangan khawatir kami akan mengirimkan anda link reset password
                 </p>
               </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              md={{ span: 6, offset: 3 }}
+              className="d-flex justify-content-center flex-column"
+            >
               {errorMessage ? (
                 <>
                   <div className="email-not-register">
@@ -85,9 +92,9 @@ const LinkResetPassword = () => {
                   </Button>
                 </>
               )}
-            </Form>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </Form>
       </Container>
     </>
   );
