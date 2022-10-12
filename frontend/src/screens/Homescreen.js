@@ -29,10 +29,12 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <JumbotronProduct />
       <Meta />
       {!keyword ? (
-        <ProductCarousel />
+        <>
+          <JumbotronProduct />
+          <ProductCarousel />
+        </>
       ) : (
         <Link to="/" className="btn btn-light">
           {' '}
@@ -56,12 +58,12 @@ const HomeScreen = ({ match }) => {
                 </Col>
               ))}
             </Row>
-            <MapsScreen />
             <Paginate
               pages={pages}
               page={page}
               keyword={keyword ? keyword : ''}
             />
+            <MapsScreen />
           </Container>
         </>
       )}

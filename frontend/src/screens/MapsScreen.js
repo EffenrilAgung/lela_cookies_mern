@@ -21,6 +21,7 @@ const MapsScreen = () => {
             allowfullscreen="fullscreen"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            className="mb-5"
           />
         </Container>
       </div>

@@ -3,6 +3,9 @@ import { Button, Container } from 'react-bootstrap';
 import SpanYellow from './spanYellow';
 
 const JumbotronProduct = () => {
+  function handleClick() {
+    window.scrollBy(0, 1500);
+  }
   return (
     <>
       <div className="jumbotron vh-100 vw-100 my-0 mt-0 align-items-center d-flex">
@@ -18,7 +21,9 @@ const JumbotronProduct = () => {
             </p>
           </div>
           <div className="col col-md-12"></div>
-          <Button className="button-jumbotron">Belanja Sekarang</Button>
+          <Button className="button-jumbotron" onClick={handleClick}>
+            Belanja Sekarang
+          </Button>
         </Container>
       </div>
     </>
