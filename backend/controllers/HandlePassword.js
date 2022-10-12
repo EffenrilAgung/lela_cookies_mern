@@ -1,7 +1,6 @@
 import sendEmail from '../helpers/index.js';
 import jsonwebtoken from 'jsonwebtoken';
 import User from '../models/userModel.js';
-import bcrypt from 'bcryptjs';
 //  @desc   Forgot Password User
 //  @route  PUT /forgotpassword
 //  @access Public
@@ -16,7 +15,8 @@ const forgotPassword = async (req, res) => {
       {
         id: user._id,
       },
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET,
+      { expiresIn: '15m' }
     );
 
     await user.updateOne({ resetPasswordLink: token });
@@ -38,8 +38,10 @@ const forgotPassword = async (req, res) => {
       message: 'link reset password terkirim',
     });
   } else {
-    res.status(500);
-    throw new Error('Email Tidak Tersedia');
+    res.status(500).json({
+      status: false,
+      message: 'Email tidak Tersedia',
+    });
   }
 };
 

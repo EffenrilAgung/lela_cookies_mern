@@ -7,8 +7,8 @@ const sendEmail = (payload) => {
     secure: false,
     requireTLS: true,
     auth: {
-      user: 'effenrilagung300@gmail.com',
-      pass: 'tpwjpriewekjnmky',
+      user: `${process.env.USERNAME_EMAIL}`,
+      pass: `${process.env.PASSWORD_EMAIL}`,
     },
   });
   return transporter
