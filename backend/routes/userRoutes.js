@@ -9,7 +9,7 @@ import {
   deleteUser,
   getUsersById,
   updateUser,
-} from '../controllers/UserController.js';
+} from '../controllers/userController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
 router.route('/').post(registerUser).get(protect, admin, getUsers);
