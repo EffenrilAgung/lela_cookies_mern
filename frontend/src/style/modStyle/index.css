@@ -12,7 +12,7 @@ font-family: 'Noto Sans Mono', monospace;
 /* Global  */
 html {
   overflow-x: hidden;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 
 * {
