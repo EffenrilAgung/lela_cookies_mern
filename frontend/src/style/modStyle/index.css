@@ -13,6 +13,7 @@ font-family: 'Noto Sans Mono', monospace;
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+
 }
 
 * {
