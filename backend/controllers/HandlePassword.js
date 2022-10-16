@@ -15,9 +15,11 @@ const forgotPassword = async (req, res) => {
       {
         id: user._id,
       },
-      process.env.JWT_SECRET,
-      { expiresIn: '15m' }
+      process.env.JWT_SECRET
+      // { expiresIn: '15m' }
     );
+
+    console.log(token);
 
     await user.updateOne({ resetPasswordLink: token });
 
@@ -28,11 +30,10 @@ const forgotPassword = async (req, res) => {
       from: 'Lela Cookies',
       to: email,
       subject: 'Link Reset Password',
-      html: `<p> Silahkan klik link dibawah untuk melakukan reset password anda </p><p>${link}</p>`,
+      html: `<h1>Token Hanya Berlaku Selama 15 Menit</h1><p> Silahkan klik link dibawah untuk melakukan reset password anda </p><p>${link}</p>`,
     };
     sendEmail(templateEmail);
 
-    token;
     return res.status(200).json({
       status: true,
       message: 'link reset password terkirim',
@@ -47,11 +48,13 @@ const forgotPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   try {
-    const { token, password } = req.body;
-    'token', token;
-    'password', password;
+    const { password, token } = req.body;
+    console.log({
+      password: password,
+      token: token,
+    });
     const user = await User.findOne({ resetPasswordLink: token });
-    user;
+
     if (user) {
       if (req.body.password) {
         user.password = req.body.password;
@@ -61,9 +64,14 @@ const resetPassword = async (req, res) => {
         status: true,
         message: 'password Berhasil Di ganti',
       });
+    } else {
+      return res.status(201).json({
+        status: false,
+        message: 'token tidak valid atau expired',
+      });
     }
   } catch (error) {
-    res.status(500).send(e.toString());
+    res.status(500).send(error.toString());
   }
 };
 
