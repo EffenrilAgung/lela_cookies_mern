@@ -10,7 +10,6 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/profileScreen';
 import ShippingScreen from './screens/ShippingScreen';
-// import Coba2 from './coba/coba2';
 import paymentScreen from './screens/PaymentScreen';
 import placeOrderScreen from './screens/placeOrderScreen';
 import OrderScreen from './screens/OrderScreeen';
@@ -49,7 +48,6 @@ const App = () => {
         <Route path="/admin/userlist" component={userListScreen} />
         <Route path="/product/:id" component={ProductScreen} />
         <Route path="/cart/:id?" component={CartScreen} />
-
         <Route path="/profile" component={ProfileScreen} />
         <Route path="/shipping" component={ShippingScreen} />
         <Route path="/payment" component={paymentScreen} />

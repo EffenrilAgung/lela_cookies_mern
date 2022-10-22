@@ -115,38 +115,39 @@ const ProductListScreen = ({ history, match }) => {
                 </tr>
               </thead>
 
-              {products.map((product) => {
-                return (
-                  <tbody key={product._id}>
-                    <tr>
-                      <td className="text-center">{x++}</td>
-                      <td>{product._id}</td>
-                      <td>{product.name}</td>
-                      <td>
-                        <td> {FormatCurrency(product.price)}</td>
-                      </td>
-                      <td>{product.category}</td>
-                      <td>{product.flavor}</td>
-                      <td className="text-center">
-                        <LinkContainer
-                          to={`/admin/product/${product._id}/edit`}
-                        >
-                          <Button variant="light" className="btn-sm">
-                            <i className="fas fa-edit"></i>
+              {products &&
+                products.map((product) => {
+                  return (
+                    <tbody key={product._id}>
+                      <tr>
+                        <td className="text-center">{x++}</td>
+                        <td>{product._id}</td>
+                        <td>{product.name}</td>
+                        <td>
+                          <td> {FormatCurrency(product.price)}</td>
+                        </td>
+                        <td>{product.category}</td>
+                        <td>{product.flavor}</td>
+                        <td className="text-center">
+                          <LinkContainer
+                            to={`/admin/product/${product._id}/edit`}
+                          >
+                            <Button variant="light" className="btn-sm">
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </LinkContainer>
+                          <Button
+                            variant="danger"
+                            className="btn-sm"
+                            onClick={() => deleteHandler(product._id)}
+                          >
+                            <i className="fas fa-trash"></i>
                           </Button>
-                        </LinkContainer>
-                        <Button
-                          variant="danger"
-                          className="btn-sm"
-                          onClick={() => deleteHandler(product._id)}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
             </Table>
             <Paginate pages={pages} page={page} isAdmin={true}></Paginate>
           </>

@@ -54,47 +54,48 @@ const userListScreen = ({ history }) => {
                   <th>ACTION</th>
                 </tr>
               </thead>
-              {users.map((user) => {
-                console.log(typeof user.isAdmin);
-                return (
-                  <tbody key={user._id}>
-                    <tr>
-                      <td>{user._id}</td>
-                      <td className="td-name-profile-screen">{user.name}</td>
-                      <td>
-                        <a href={`mailto: ${user.email}`}>{user.email}</a>
-                      </td>
-                      <td className="text-center">
-                        {user.isAdmin ? (
-                          <i
-                            className="fas fa-check"
-                            style={{ color: 'green' }}
-                          ></i>
-                        ) : (
-                          <i
-                            className="fas fa-times"
-                            style={{ color: 'red' }}
-                          ></i>
-                        )}
-                      </td>
-                      <td className="text-center">
-                        <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                          <Button variant="light" className="btn-sm">
-                            <i className="fas fa-edit"></i>
+              {users &&
+                users.map((user) => {
+                  console.log(typeof user.isAdmin);
+                  return (
+                    <tbody key={user._id}>
+                      <tr>
+                        <td>{user._id}</td>
+                        <td className="td-name-profile-screen">{user.name}</td>
+                        <td>
+                          <a href={`mailto: ${user.email}`}>{user.email}</a>
+                        </td>
+                        <td className="text-center">
+                          {user.isAdmin ? (
+                            <i
+                              className="fas fa-check"
+                              style={{ color: 'green' }}
+                            ></i>
+                          ) : (
+                            <i
+                              className="fas fa-times"
+                              style={{ color: 'red' }}
+                            ></i>
+                          )}
+                        </td>
+                        <td className="text-center">
+                          <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                            <Button variant="light" className="btn-sm">
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </LinkContainer>
+                          <Button
+                            variant="danger"
+                            className="btn-sm"
+                            onClick={() => deleteHandler(user._id)}
+                          >
+                            <i className="fas fa-trash"></i>
                           </Button>
-                        </LinkContainer>
-                        <Button
-                          variant="danger"
-                          className="btn-sm"
-                          onClick={() => deleteHandler(user._id)}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </Button>
-                      </td>
-                    </tr>
-                  </tbody>
-                );
-              })}
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
             </Table>
           </Col>
         )}

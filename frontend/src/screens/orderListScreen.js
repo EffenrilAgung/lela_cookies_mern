@@ -50,49 +50,50 @@ const OrderListScreen = ({ history }) => {
                 <th>DETAIL</th>
               </tr>
             </thead>
-            {orders.map((order) => {
-              console.log(order);
-              return (
-                <tbody key={order._id}>
-                  <tr>
-                    <td>{order._id}</td>
-                    <td>{order.user && order.user.name}</td>
-                    <td>{order.create_At}</td>
-                    <td>{order.totalPrice}</td>
-                    <td className="text-center">
-                      {order.isPaid ? (
-                        order.paidAt
-                      ) : (
-                        <i
-                          className="fas fa-times"
-                          style={{ color: 'red' }}
-                        ></i>
-                      )}
-                    </td>
-                    <td className="text-center">
-                      {order.isDelivered ? (
-                        order.deliveredAt
-                      ) : (
-                        <i
-                          className="fas fa-times"
-                          style={{ color: 'red' }}
-                        ></i>
-                      )}
-                    </td>
-                    <td>
-                      <LinkContainer to={`/order/${order._id}`}>
-                        <Button
-                          variant="light"
-                          className="btn-sm button-effect-mod"
-                        >
-                          Rincian
-                        </Button>
-                      </LinkContainer>
-                    </td>
-                  </tr>
-                </tbody>
-              );
-            })}
+            {orders &&
+              orders.map((order) => {
+                console.log(order);
+                return (
+                  <tbody key={order._id}>
+                    <tr>
+                      <td>{order._id}</td>
+                      <td>{order.user && order.user.name}</td>
+                      <td>{order.create_At}</td>
+                      <td>{order.totalPrice}</td>
+                      <td className="text-center">
+                        {order.isPaid ? (
+                          order.paidAt
+                        ) : (
+                          <i
+                            className="fas fa-times"
+                            style={{ color: 'red' }}
+                          ></i>
+                        )}
+                      </td>
+                      <td className="text-center">
+                        {order.isDelivered ? (
+                          order.deliveredAt
+                        ) : (
+                          <i
+                            className="fas fa-times"
+                            style={{ color: 'red' }}
+                          ></i>
+                        )}
+                      </td>
+                      <td>
+                        <LinkContainer to={`/order/${order._id}`}>
+                          <Button
+                            variant="light"
+                            className="btn-sm button-effect-mod"
+                          >
+                            Rincian
+                          </Button>
+                        </LinkContainer>
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })}
           </Table>
         )}
       </div>

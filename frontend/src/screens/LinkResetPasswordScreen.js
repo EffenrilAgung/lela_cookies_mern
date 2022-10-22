@@ -13,7 +13,7 @@ const LinkResetPassword = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     await axios
-      .put('http://localhost:4001/forgotpassword', { email: email })
+      .put('/forgotpassword', { email: email })
       .then((res) => {
         if (res) {
           setAlertMessage(true);
