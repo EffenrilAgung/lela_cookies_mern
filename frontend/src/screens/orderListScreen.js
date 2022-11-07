@@ -52,7 +52,6 @@ const OrderListScreen = ({ history }) => {
             </thead>
             {orders &&
               orders.map((order) => {
-                console.log(order);
                 return (
                   <tbody key={order._id}>
                     <tr>

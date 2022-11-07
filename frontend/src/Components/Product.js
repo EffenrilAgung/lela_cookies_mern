@@ -5,8 +5,6 @@ import FormatCurrency from './FormatCurrency';
 import { Card } from 'react-bootstrap';
 
 const Product = ({ product }) => {
-  console.log(FormatCurrency(product.price));
-  console.log(product);
   return (
     <>
       <Card className="card-product-homescreen" style={{ width: '18rem' }}>
