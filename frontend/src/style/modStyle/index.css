@@ -349,6 +349,46 @@ h2 {
 
 /* Close Card Product */
 
+/* cart */
+.input-number-cart[type=number] {
+  width: 40px;
+  -moz-appearance: textfield;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: rgb(192, 192, 192);
+  margin: auto 5px;
+  outline: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+.input-number-cart[type=number]::-webkit-outer-spin-button,
+.input-number-cart[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-product-cart {
+  border: solid 2px #FFCB08;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: 5px;
+  color: #000;
+  cursor: pointer;
+}
+
+.add-product-cart:first-child {}
+
+
+/* End Cart */
+
 /* ShippingScreeen */
 a.nav-link-shipping-screen.nav-link {
   color: #ECB70A;
