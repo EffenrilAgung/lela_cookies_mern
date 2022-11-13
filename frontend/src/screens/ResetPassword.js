@@ -19,7 +19,7 @@ const ResetPassword = (props) => {
     console.log(data.password);
 
     axios
-      .put(`${process.env.REACT_APP_BASE_URL}/resetpassword`, data)
+      .put(`/resetpassword`, data)
       .then((res) => {
         if (res) {
           setAlertMessage('true');
