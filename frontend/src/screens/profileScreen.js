@@ -63,7 +63,7 @@ const RegisterScreen = ({ history }) => {
     <Container>
       <Row className="py-4">
         <Col md={3}>
-          <h2 className="title-profile-screen">Sign Up</h2>
+          <h2 className="title-profile-screen">Edit Profile</h2>
           {message && <Message variant="primary">{message}</Message>}
           {error && <Message variant="danger">{error}</Message>}
           {success && <Message variant="success">Profile Update</Message>}
