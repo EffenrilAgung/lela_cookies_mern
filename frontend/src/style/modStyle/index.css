@@ -16,6 +16,11 @@ html {
 
 }
 
+span.style-font {
+  color: #ECB70A;
+  font-family: 'pacifico';
+}
+
 * {
   color: #212529;
   font-family: 'Poppins', sans-serif;
@@ -171,6 +176,9 @@ button.button-jumbotron.btn.btn-primary:hover {
   color: #fff;
 }
 
+span.span-home {
+  font-size: 3.1rem;
+}
 
 
 /* end jumbotron */
@@ -229,6 +237,9 @@ a.nav-link:hover {
   font-weight: 500;
 }
 
+span.span-navbar {
+  font-size: 1.7rem;
+}
 
 
 
@@ -465,8 +476,17 @@ label.label-email.text-center.form-label {
   text-align: left;
   color: rgba(255, 203, 8, 1);
   font-weight: 500;
-  background-color: transparent;
+  background-color: black;
 }
+
+.input-email.form-control:focus,
+.input-password.form-control.form-control:focus {
+  outline: 1;
+  background-color: #000;
+  color: #FFCB08;
+  border-color: inherit;
+}
+
 
 .input-email.form-control:-webkit-autofill,
 .input-email.form-control:-webkit-autofill:hover,
@@ -573,6 +593,29 @@ button.button-login.btn.btn-primary:hover {
 
 /* End Login */
 
+/* mobile login */
+.group-email-mobile {
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 92px;
+}
+
+.group-password-mobile {
+  width: 100%;
+  height: 92px;
+  margin-top: 20px;
+  position: relative;
+  background-color: rgb(0, 0, 0);
+}
+
+
+input.mobile-input-email {
+  margin-top: .5rem;
+}
+
+/* end mobile login */
+
 /* Shipping Screen */
 .title-shipping {
   font-size: 1.875rem;
@@ -618,7 +661,10 @@ h2.name-title-owner,
 .container-footer {
   background-color: rgba(0, 0, 0, 0.87);
   padding-top: 93px;
+}
 
+span.span-footer {
+  font-size: 1rem;
 }
 
 .footer-note {

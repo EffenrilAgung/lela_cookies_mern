@@ -10,7 +10,6 @@ import { listProducts } from '../action/productActions';
 import Paginate from '../Components/Paginate';
 import ProductCarousel from '../Components/productCarousel';
 import JumbotronProduct from '../Components/JumbotronProduct';
-import SpanYellow from '../Components/spanYellow';
 import MapsScreen from './MapsScreen';
 
 const HomeScreen = ({ match }) => {
@@ -42,7 +41,7 @@ const HomeScreen = ({ match }) => {
         </Link>
       )}
       <h2 className="sub-title text-center">
-        All<SpanYellow>Product</SpanYellow>
+        All<span className="style-font span-main-home">Product</span>
       </h2>
       {loading ? (
         <Loader /> // this loading handling
@@ -54,7 +53,14 @@ const HomeScreen = ({ match }) => {
             <Row className="card-product">
               {products &&
                 products.map((product) => (
-                  <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                  <Col
+                    className="d-flex justify-content-center"
+                    key={product._id}
+                    sm={12}
+                    md={6}
+                    lg={4}
+                    xl={3}
+                  >
                     <Product product={product} />
                   </Col>
                 ))}

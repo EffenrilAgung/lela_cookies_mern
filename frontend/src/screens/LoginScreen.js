@@ -106,7 +106,7 @@ const MobileLoginScreen = ({ location, history }) => {
         <div className="vh-100 d-flex justify-content-center align-items-center flex-column container-mobile">
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
-          <div className="py-5">
+          <div className="container py-5 px-2">
             <h2 className="title-login text-center">
               Welcome{' '}
               <SpanYellow className="mobile-yellow-span">Back</SpanYellow>
@@ -116,20 +116,23 @@ const MobileLoginScreen = ({ location, history }) => {
               pribadi Anda menggunakan email dan kata sandi
             </p>
             <Form onSubmit={submitHandler}>
-              <Form.Group controlId="email" className="group-email ">
+              <Form.Group controlId="email" className="group-email-mobile ">
                 <i className="icon-email fa-sharp fa-solid fa-envelope"></i>
                 <Form.Label className="label-email text-center">
                   Email Address
                 </Form.Label>
                 <Form.Control
-                  className="input-email"
+                  className="input-email mobile-input-email"
                   type="email"
                   placeholder="Enter Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 ></Form.Control>
               </Form.Group>
-              <Form.Group controlId="password" className="group-password">
+              <Form.Group
+                controlId="password"
+                className="group-password-mobile"
+              >
                 <i className="icon-password fa-sharp fa-solid fa-key"></i>
                 <Form.Label className="label-password">Password</Form.Label>
                 <Form.Control

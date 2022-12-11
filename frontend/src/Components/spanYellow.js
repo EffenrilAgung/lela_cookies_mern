@@ -6,7 +6,7 @@ const SpanYellow = ({ className = '', children }) => {
     fontFamily: 'Pacifico',
   };
   return (
-    <span style={spanStyle} className={`${className}`}>
+    <span style={spanStyle} className={className}>
       {children}
     </span>
   );

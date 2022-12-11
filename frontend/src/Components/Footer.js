@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import SpanYellow from './spanYellow';
 
 const componentDidMount = () => {
   let now = new Date();
@@ -18,7 +17,7 @@ const Footer = () => {
               <div className="col-md-4">
                 <div className="d-flex justify-content-center flex-column"></div>
                 <h2 className="name-title-owner">
-                  lela <SpanYellow>Cookies</SpanYellow>
+                  lela <span className="style-font span-footer">Cookies</span>
                 </h2>
                 <p className="story-owner">
                   Lela cookies adalah home industry yang bergerak dalam bidang

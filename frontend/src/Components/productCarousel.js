@@ -5,7 +5,6 @@ import Loader from './loader';
 import Message from './message';
 import { listTopProducts } from '../action/productActions';
 import { useDispatch, useSelector } from 'react-redux';
-import SpanYellow from './spanYellow';
 import FormatCurrency from './FormatCurrency';
 
 const productCarousel = () => {
@@ -25,7 +24,7 @@ const productCarousel = () => {
     <>
       <Container>
         <h2 className="sub-title text-center">
-          Best <SpanYellow>Product</SpanYellow>{' '}
+          Best <span className="style-font span-main-home">Product</span>{' '}
         </h2>
         <Carousel pause="hover" className="bg-dark">
           {products.map((product) => (

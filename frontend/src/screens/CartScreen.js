@@ -36,6 +36,7 @@ const CartScreen = ({ match, location, history }) => {
   const checkOutHandler = () => {
     history.push('/login?redirect=shipping'); //this is a redirect url if user do not loggin in website
   };
+
   return (
     <>
       <div className="py-5 container">

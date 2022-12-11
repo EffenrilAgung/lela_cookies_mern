@@ -60,6 +60,24 @@
     }
 }
 
+@media only screen and (max-width: 428px) {
+
+    .jumbotron-h1,
+    span.span-home {
+        font-size: 9vw;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+
+    .jumbotron-h1,
+    span.span-home {
+        font-size: 9vw;
+    }
+}
+
+
+
 @media only screen and (max-width: 390px) {
     * {
         font-size: 16px;
@@ -89,54 +107,48 @@
     }
 
     label.label-email.text-center.form-label {
-        top: 3px;
+        top: 15px;
         margin-top: 0;
         margin-bottom: 0;
     }
 
     .icon-email {
-        font-size: 2.1rem;
+        font-size: 3rem;
         left: 16px;
-        top: 12px;
+        top: 25px;
         bottom: 11px;
     }
 
     .input-email.form-control {
         width: 60%;
         height: 24px;
-        bottom: 0;
         font-size: 1rem;
-        top: 24px;
         border: none;
-    }
-
-    .group-password {
-        width: 300px;
-        height: 55px;
-        margin: 15px auto 0 auto;
+        top: 2.5rem;
+        border-radius: 0;
     }
 
     .label-password {
-        top: 3px;
+        top: 15px;
         margin-top: 0;
         margin-bottom: 0;
         margin: 0 0 0 82px;
     }
 
     .icon-password {
-        font-size: 2.1rem;
+        font-size: 3rem;
         left: 16px;
-        top: 12px;
+        top: 15px;
         bottom: 11px;
     }
 
     .input-password.form-control {
         width: 50%;
         height: 24px;
-        bottom: 0;
         font-size: 1rem;
-        top: 24px;
+        top: 2.8rem;
         border: none;
+        border-radius: 0;
     }
 
     .login-new-user {
@@ -163,7 +175,7 @@
 
     button.button-login.btn.btn-primary {
         width: 124px;
-        height: 40px;
+
         font-weight: 500;
     }
 
@@ -243,10 +255,32 @@
     }
 
     /* end Order List Screen */
+
+    /* Home Screen */
+    span.span-main-home {
+        font-size: 1.5rem;
+    }
+
+    /* End Home Screen */
 }
 
+
 @media only screen and (max-width: 360px) {
-    .jumbotron-h1 {
-        font-size: 2rem;
+
+    .jumbotron-h1,
+    span.span-home {
+        font-size: 9vw;
+    }
+
+    span.span-main-home {
+        font-size: 1.5rem;
+    }
+
+    h2.title-login {
+        font-size: 2.5rem;
+    }
+
+    .login-text {
+        font-size: .634;
     }
 }

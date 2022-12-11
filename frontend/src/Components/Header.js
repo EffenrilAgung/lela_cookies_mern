@@ -5,7 +5,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { logout } from '../action/userAction';
 import SearchBox from './searchBox';
-import SpanYellow from './spanYellow';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -23,7 +22,7 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand className="font-title">
               Lela
-              <SpanYellow>Cookies</SpanYellow>
+              <span className="style-font span-navbar">Cookies</span>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
